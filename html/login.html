@@ -1,9 +1,58 @@
+<!DOCTYPE html>
+
 <html lang="en">
-    <!--Link to CSS Stylesheet-->
 
-    <!--Link to JS Script-->
+    <head> 
+         <!--Link to CSS Stylesheet-->
+        <link rel="stylesheet" href="../css/login.css">
+
+        <!--Link to JS Script-->
+        <script src="../js/login.js" defer></script> <!--Wait for HTML script-->
+        
+        <!--Responsiveness-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Login</title>
     
-    <head> <title> </title></head>
+    </head>
 
-    <body> </body>
+    <body> 
+
+            <div id="loginDiv">
+
+            <img src="../images/logo.png" alt="Logo of a key, with a door underlay and the words BreakRoom written above" class="logo">
+            
+            <div id="buttonsDiv">
+                <button type="button" class="button" id="employerBTN" onclick="showEmployer()">Employer</button>
+                <br><br>
+                <button type="button" class="button" id="employeeBTN" onclick="showEmployee()">Employee</button>
+                <br><br><br>
+            </div>
+
+            <form>
+                <div id="employerFields" class="formSection">
+                <label>Company ID: </label>
+                <input type="text">
+            
+                <label>Password: </label>
+                <input type="password">
+
+                <button class="submitBTN">Login</button>
+                <button type="button" class="backBTN" onclick="resetForm()">Back</button>
+                </div>
+
+                <div id="employeeFields" class="formSection">
+                <label>Reference ID: </label>
+                <input type="text">
+
+                <label>Password: </label>
+                <input type="password">
+
+                <button class="submitBTN">Login</button>
+                <button type="button" class="backBTN" onclick="resetForm()">Back</button>
+                </div>
+            </form>
+        </div>
+    </body>
 </html>
