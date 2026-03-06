@@ -1,0 +1,33 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6); /*tinting the background*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /*this sets the cert in front of the feedback form*/
+}
+
+.hidden {
+  display: none;
+}
+
+.certificateCard {
+  background: #fff; /*to get that parchment look*/
+  padding: 2rem; /*https://www.w3schools.com/cssref/css_units.php*/
+  width: 500px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/*Download button*/
+/*https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Printing*/
+@media print {
+  #downloadCertificateBTN,
+  #closeCertificateBTN {
+    display: none;
+  }
+}
