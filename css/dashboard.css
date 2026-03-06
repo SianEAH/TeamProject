@@ -1,0 +1,22 @@
+#navbarNav {
+    background-color: #1cabb0;
+}
+
+.navbar,
+.navbar-expand-lg{
+	padding:0px;
+	margin-bottom:0px;
+}
+
+.card {
+    background-color:#f4f7f0;
+}
+
+a:hover {
+    background-color: #188a8e;
+    text-decoration: underline;
+}
+
+body {
+    background-color: #1cabb0;
+}
