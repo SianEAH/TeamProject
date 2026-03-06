@@ -1,0 +1,12 @@
+.imgFirstAid{
+  border-radius: 8px solid;
+  width: 15em;
+}
+body{
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif; /*fonts for the browser to try*/
+    background-color: #1cabb0;
+}
+.title{
+  text-align: center;
+}
