@@ -1,0 +1,28 @@
+form {
+  max-width: 800px;
+  margin: auto;
+}
+
+input, textarea, select {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.puzzle {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+#createModuleHeading {
+    text-align: center;
+    text-decoration: underline;
+}
+
+#moduleDetailsHeading {
+    text-decoration: underline;
+}
+
+#puzzleCreationHeading {
+    text-decoration: underline;
+}
