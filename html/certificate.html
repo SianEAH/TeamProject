@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head lang="en">
+<!--CSS Linking-->
+<link rel="stylesheet" href="../css/certificate.css">
+
+<!--JS Linking-->
+<script src="../js/certificate.js" defer></script>
+
+<title>Certificate of Completion</title>
+
+</head>
+
+<body>
+
+<div id="certificate" class="modal-overlay hidden"> <!--Cert model will be an overlay over the feedback form, upon successful completion-->
+<div class="certificateCard">
+    <h1>Certificate of Completion</h1>
+
+    <p>This certifies that</p>
+    <h2 id="employeeName">Employee Name</h2>
+
+    <p>has successfully completed</p>
+    <h3 id="moduleName">Module Name</h3>
+
+    <p>
+    Issued on: <span id="certDate"></span><br> <!--Adding colour to the date and ID-->
+    Certificate ID: <span id="certId"></span>
+    </p>
+
+    <div id="qrCode"></div> <!--QR Code creation-->
+
+    <button id="downloadCertificateBTN">Download</button>
+    <button id="closeCertificateBTN">Close</button>
+</div>
+</div>
+
+</body>
