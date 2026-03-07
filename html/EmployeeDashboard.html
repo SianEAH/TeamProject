@@ -1,75 +1,61 @@
+<!DOCTYPE html>
 <html lang="en">
+    <head>  
+        <title>Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="../css/dashboard.css"/>
+    </head>
 
-<head>
-    <title>Dashboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css" />
-</head>
-
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">- Breakroom -</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <body>  
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="../html/EmployeeDashboard.html">- Breakroom -</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Modules</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Feedback</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Certificates</a>
-                </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="EmployeeDashboard.html">Modules</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="feedbackPage.html">Feedback</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="certificatePage.html">Certificates</a>
+            </li>
             </ul>
         </div>
-    </nav>
-    <div class="card-group">
+        </nav>
+        <div class="card-group">
         <div class="card">
             <img src="../images/firstAid.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">First Aid</h5>
-                <p class="card-text">You are locked inside a community center. To unlock the exit door, you must solve
-                    emergency scenarios correctly
-                    using first aid knowledge. Each correct answer gives you ONE digit number. Solve all 5 to escape!
-                </p>
-                <button type="button" class="btn btn-primary">Enter</button>
+            <h5 class="card-title">First Aid</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <button type="button" class="btn btn-primary" href="#">Enter</button>
             </div>
         </div>
         <div class="card">
             <img src="../images/customerService.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Module Name</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                    voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                <button type="button" class="btn btn-primary">Enter</button>
+            <h5 class="card-title">Customer Service</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <button type="button" class="btn btn-primary" href="#">Enter</button>      
             </div>
         </div>
         <div class="card">
             <img src="../images/fireSafety.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Module Name</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                    voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                <button type="button" class="btn btn-primary">Enter</button>
+            <h5 class="card-title">Fire Safety</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <button type="button" class="btn btn-primary" href="#">Enter</button>
             </div>
         </div>
-    </div>
-    <div>
-        <p> Footer goes here: </p>
-    </div>
-</body>
-
+        </div>
+        <footer class="footer">   
+            <p>© 2026 BreakRoom Training Platform</p>
+        </footer>
+    </body>
 </html>
