@@ -1,15 +1,30 @@
-//adding modules
+//track the puzzles as they're added
+let puzzleCount = 1;
+
 document.getElementById("addPuzzle").addEventListener("click", function () {
 
+  puzzleCount++; //up the puzzle counter
+
   const puzzleDiv = document.createElement("div");
-  puzzleDiv.classList.add("puzzle"); //https://www.w3schools.com/jsref/prop_element_classlist.asp
+  puzzleDiv.classList.add("puzzle");
 
   puzzleDiv.innerHTML = `
+    <h3>Puzzle ${puzzleCount}</h3>
+
     <label>Puzzle Question</label>
     <textarea name="question[]"></textarea>
 
-    <label>Upload Media</label>
-    <input type="file" name="media[]">
+    <label>Media Type</label>
+    <select class="mediaType">
+      <option value="">Select Media Type</option>
+      <option value="text">Text</option>
+      <option value="image">Image</option>
+      <option value="video">Video</option>
+      <option value="file">File</option>
+      <option value="mixture">Mixture</option>
+    </select>
+
+    <div class="mediaInput"></div>
 
     <label>Hint</label>
     <input type="text" name="hint[]">
@@ -20,10 +35,13 @@ document.getElementById("addPuzzle").addEventListener("click", function () {
 
   document.getElementById("createModuleForm").appendChild(puzzleDiv);
 
+  //attach media selector to this new puzzle
+  setupMediaSelector(puzzleDiv.querySelector(".mediaType"));
 });
 
-//media type selector and what it shows
-document.querySelectorAll(".mediaType").forEach(select => {
+
+//function to handle media type changes
+function setupMediaSelector(select) {
 
   select.addEventListener("change", function () {
 
@@ -31,34 +49,39 @@ document.querySelectorAll(".mediaType").forEach(select => {
     container.innerHTML = "";
 
     if (this.value === "text") {
+
       container.innerHTML = `
         <label>Scenario Text</label>
         <textarea name="mediaText[]"></textarea>
       `;
     }
 
-    if (this.value === "image") {
+    else if (this.value === "image") {
+
       container.innerHTML = `
         <label>Upload Image</label>
         <input type="file" name="mediaImage[]" accept="image/*">
       `;
     }
 
-    if (this.value === "video") {
+    else if (this.value === "video") {
+
       container.innerHTML = `
         <label>Upload Video</label>
         <input type="file" name="mediaVideo[]" accept="video/*">
       `;
     }
 
-    if (this.value === "file") {
+    else if (this.value === "file") {
+
       container.innerHTML = `
         <label>Upload Document</label>
         <input type="file" name="mediaFile[]" accept=".pdf,.doc,.docx">
       `;
     }
 
-    if (this.value === "mixture") {
+    else if (this.value === "mixture") {
+
       container.innerHTML = `
         <label>Scenario Text</label>
         <textarea name="mediaText[]"></textarea>
@@ -76,4 +99,8 @@ document.querySelectorAll(".mediaType").forEach(select => {
 
   });
 
-});
+}
+
+
+//attach media selector to the first puzzle on page load
+document.querySelectorAll(".mediaType").forEach(setupMediaSelector);

@@ -65,11 +65,58 @@
 
         <label>Pass Mark (%):</label>
         <input type="number" name="passScore" min="0" max="100" required>
+        <br><br>
+        <!--upload an image for the grid-->
+        <!--https://www.w3schools.com/tags/att_input_accept.asp-->
+        <!--https://www.w3schools.com/tags/tag_small.asp-->
+        <div class="mb-3"> <!--For the Bootstrap class-->
+            <label for="moduleImage">Module Image</label>
+            <input 
+                type="file" 
+                id="moduleImage" 
+                name="moduleImage"
+                accept="image/*" 
+                required
+            >
+            <small class="text-muted">Upload an image to represent this module in the module grid.</small>
+        </div>
+        
         <br><br><br>
 
         <h2 id="puzzleCreationHeading">Puzzle Content</h2>
         <br>
-        
+        <div class="puzzle">
+        <label>Puzzle Format:</label>
+            <select name="puzzleType">
+
+                <option value="">Select a format</option> <!--Don't force them to choose-->
+
+                <option value="multipleChoice">
+                Multiple Choice – user selects the correct answer
+                </option>
+
+                <option value="dragOrder">
+                Drag & Drop – arrange steps in the correct order
+                </option>
+
+                <option value="matching">
+                Matching – match items together
+                </option>
+
+                <option value="spotMistake">
+                Spot Mistake – identify mistakes
+                </option>
+
+                <option value="rapidFire">
+                Rapid Fire – timed multiple choice questions
+                </option>
+
+            </select>
+        <br><br>
+
+        <label>Puzzle Instructions:</label>
+        <textarea name="puzzleInstructions" required></textarea>
+
         <label>Media Type: </label>
         <br><br>
         <select class="mediaType">
@@ -87,8 +134,13 @@
         <button type="button" id="addPuzzle">Add Another Puzzle</button>
 
         <button type="submit">Create Module</button>
-
+    </div>
         </form>
+        <br><br>
+        <!--Footer-->
+        <footer class="footer">
+            <p>© 2026 BreakRoom Training Platform</p>
+        </footer>
 
     </body>
 </html>
