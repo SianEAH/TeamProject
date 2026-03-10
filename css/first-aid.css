@@ -1,6 +1,8 @@
 .imgFirstAid{
+  display: block;
+  margin: auto;
   border-radius: 8px solid;
-  width: 15em;
+  width: 50%;
 }
 body{
     margin: 0;
