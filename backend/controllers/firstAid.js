@@ -1,4 +1,4 @@
-function checkAnswer(){
+function checkAnswer1(){
   const answers = document.getElementsByName("first_question");
   let selected = null;
 
@@ -20,7 +20,7 @@ function checkAnswer(){
   
 }
 
-function checkOrder(){
+function checkOrder2(){
   const correctOrder = ["Encourage", "back", "trusts", "repeat"];
 
   const userOrder = [
@@ -42,7 +42,7 @@ function checkOrder(){
   }
 }
 
-function checkText(){
+function checkText3(){
   const userInput = document.getElementById("answer3").value;
 
   if(userInput === "112"){
