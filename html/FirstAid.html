@@ -2,7 +2,7 @@
 <!--Link to CSS Stylesheet-->
 <link rel="stylesheet" href="../css/first-aid.css">
 <!--Link to JS Script-->
-<script src="../js/first-aid.js" defer></script>
+<script src="../backend/controllers/firstAid.js" defer></script>
 
 <head>
     <title>Fisrt Aid</title>
@@ -18,7 +18,9 @@
         using
         first aid knowledge. Each correct answer gives you ONE digit number. Solve all 5 to escape!</h2>
     <br>
-    <h3>Convert your answers into numbers like A=1, B=2, C=3, D=4. The number becomes your clue.</h3>
+    <h3>When you answer all the questions correctly you can escape from this room. Good Luck!</h3>
+
+    <br>
     <div class="allPuzzle">
         <div class="puzzle1">
             <!--Freepik. (2026). Choking first aid Images - Free Download on Freepik. [online] Available at:
@@ -28,14 +30,17 @@
             <h3>Question: According to current CPR guidelines, how many chest compressions should you give before 2
                 rescue
                 breaths?</h3>
-            <input type="radio" id="html" name="first question" value="HTML">
-            <label for="html">A. 15</label><br>
-            <input type="radio" id="html" name="first question" value="HTML">
-            <label for="html">B. 20</label><br>
-            <input type="radio" id="html" name="first question" value="HTML">
-            <label for="html">C. 30</label><br>
-            <input type="radio" id="html" name="first question" value="HTML">
-            <label for="html">D. 50</label><br>
+            <input type="radio" name="first_question" value="A">
+            <label>A. 15</label><br>
+            <input type="radio" name="first_question" value="B">
+            <label>B. 20</label><br>
+            <input type="radio" name="first_question" value="C">
+            <label>C. 30</label><br>
+            <input type="radio" name="first_question" value="D">
+            <label>D. 50</label><br>
+
+            <button onclick="checkAnswer()">Submit</button>
+            <p id="result1"></p>
 
         </div>
 
@@ -45,16 +50,40 @@
             <img src="../images/chokingE.jpg" alt="Choking picture" class="imgFirstAid">
             <h2 class="title">Puzzle 2: Choking Emergency</h2>
             <h3>A restaurant guest is choking and cannot speak, cough, or breath.
-                Question: What is your first action?
+                Question: What is your first and following actions? Put them correct order.
             </h3>
-            <input type="radio" id="html" name="second question" value="HTML">
-            <label for="html">A. Give 5 abdominal trusts immediately</label><br>
-            <input type="radio" id="html" name="second question" value="HTML">
-            <label for="html">B. Encourage them to cough</label><br>
-            <input type="radio" id="html" name="second question" value="HTML">
-            <label for="html">C. Give water</label><br>
-            <input type="radio" id="html" name="second question" value="HTML">
-            <label for="html">D. Lay them down</label><br>
+
+            <select id="step1">
+                <option value="">Step 1</option>
+                <option value="trusts">Give 5 abdominal trusts</option>
+                <option value="Encourage">Encourage them to cough</option>
+                <option value="back">Give 5 Back Blows</option>
+                <option value="repeat">Repeat</option>
+            </select>
+            <select id="step2">
+                <option value="">Step 2</option>
+                <option value="trusts">Give 5 abdominal trusts</option>
+                <option value="Encourage">Encourage them to cough</option>
+                <option value="back">Give 5 Back Blows</option>
+                <option value="repeat">Repeat</option>
+            </select>
+            <select id="step3">
+                <option value="">Step 3</option>
+                <option value="trusts">Give 5 abdominal trusts</option>
+                <option value="Encourage">Encourage them to cough</option>
+                <option value="back">Give 5 Back Blows</option>
+                <option value="repeat">Repeat</option>
+            </select>
+            <select id="step4">
+                <option value="">Step 4</option>
+                <option value="trusts">Give 5 abdominal trusts</option>
+                <option value="Encourage">Encourage them to cough</option>
+                <option value="back">Give 5 Back Blows</option>
+                <option value="repeat">Repeat</option>
+            </select><br>
+            <button onclick="checkOrder()">Submit</button>
+
+            <p id="result2"></p>
         </div>
 
         <div class="puzzle3">
@@ -63,20 +92,13 @@
             <img src="../images/bleeding.jpg" alt="Bleeding picture" class="imgFirstAid">
             <h2 class="title">Puzzle 3: Bleeding Control</h2>
             <h3>While working at a shop, a customer cuts their finger on something sharp. The wound is deep and the
-                bleeding
-                has
-                not stopped.
+                bleeding has not stopped. So you should call emergency.
                 <br>
-                Question: What is the first tool you should look for?
+                Question: What is the emergency number of Ireland? Fill the blank.
             </h3>
-            <input type="radio" id="html" name="third question" value="HTML">
-            <label for="html">A. Sterile gauze</label><br>
-            <input type="radio" id="html" name="third question" value="HTML">
-            <label for="html">B. Bleeding bag</label><br>
-            <input type="radio" id="html" name="third question" value="HTML">
-            <label for="html">C. Bandage</label><br>
-            <input type="radio" id="html" name="third question" value="HTML">
-            <label for="html">D. Disposable gloves</label><br>
+            <p>The emergency number in Ireland is <input type="text" id="answer3"></p>
+            <button onclick="checkText()">Submit</button>
+            <p id="result3"></p>
 
         </div>
 
@@ -123,17 +145,6 @@
             <label for="html">D. Pull the arm to check if it is broken</label><br>
 
         </div>
-
-        <h1>Enter the keys:</h1>
-        <div>
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-        </div>
-
-    </div>
 </body>
 
 </html>
