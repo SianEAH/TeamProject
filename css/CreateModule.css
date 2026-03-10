@@ -1,0 +1,56 @@
+form {
+  max-width: 800px;
+  margin: auto;
+}
+
+input, textarea, select {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.puzzle {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+#createModuleHeading {
+    text-align: center;
+    text-decoration: underline;
+}
+
+#moduleDetailsHeading {
+    text-decoration: underline;
+}
+
+#puzzleCreationHeading {
+    text-decoration: underline;
+}
+
+#navbarNav {
+    background-color: #1cabb0;
+}
+
+.navbar,
+.navbar-expand-lg{
+	padding:0px;
+	margin-bottom:0px;
+}
+
+.card {
+    background-color:#f4f7f0;
+}
+
+a:hover {
+    background-color: #188a8e;
+    text-decoration: underline;
+}
+
+body {
+    background-color: #1cabb0;
+}
+
+.footer {
+   background-color: #1cabb0;
+   text-align: center;
+}
