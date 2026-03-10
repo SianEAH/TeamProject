@@ -7,6 +7,9 @@
          <!--Link to CSS file-->
         <link rel="stylesheet" href="../css/dashboard.css"/>
 
+        <!--Link to JS file-->
+        <script src="../js/AssignEmployees.js"></script>
+
          <!--Responsiveness-->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,7 +48,7 @@
             <div class="card-body">
             <h5 class="card-title">First Aid</h5>
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            <button type="button" class="btn btn-primary" href="#">Enter</button>
+            <button type="button" class="btn btn-primary" href="#" onclick="openEmployeeList()">Enter</button>
             </div>
         </div>
         <div class="card">
@@ -53,7 +56,7 @@
             <div class="card-body">
             <h5 class="card-title">Customer Service</h5>
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            <button type="button" class="btn btn-primary" href="#">Enter</button>      
+            <button type="button" class="btn btn-primary" href="#" onclick="openEmployeeList()">Enter</button>      
             </div>
         </div>
         <div class="card">
@@ -61,10 +64,79 @@
             <div class="card-body">
             <h5 class="card-title">Fire Safety</h5>
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            <button type="button" class="btn btn-primary" href="#">Enter</button>
+            <button type="button" class="btn btn-primary" href="#" onclick="openEmployeeList()">Enter</button>
             </div>
         </div>
         </div>
+
+        <!--Employee Assignment List-->
+        <div id="employeeModal" class="modal">
+
+            <div class="modal-content">
+
+            <h2>Assign Employees</h2>
+
+            <div class="employee-list">
+
+            <label class="employee">
+                <input type="checkbox" value="#">
+                Name - ReferenceNumber
+            </label>
+
+            <label class="employee">
+                <input type="checkbox" value="#">
+                Name - ReferenceNumber
+            </label>
+
+            <label class="employee">
+                <input type="checkbox" value="#">
+                Name - ReferenceNumber
+            </label>
+
+            <label class="employee">
+                <input type="checkbox" value="#">
+                Name - ReferenceNumber
+            </label>
+
+            <label class="employee">
+                <input type="checkbox" value="#">
+                Name - ReferenceNumber
+            </label>
+
+            <label class="employee">
+                <input type="checkbox" value="#">
+                Name - ReferenceNumber
+            </label>
+
+            <label class="employee">
+                <input type="checkbox" value="#">
+                Name - ReferenceNumber
+            </label>
+
+            <label class="employee">
+                <input type="checkbox" value="#">
+                Name - ReferenceNumber
+            </label>
+
+            <label class="employee">
+                <input type="checkbox" value="#">
+                Name - ReferenceNumber
+            </label>
+
+            <label class="employee">
+                <input type="checkbox" value="#">
+                Name - ReferenceNumber
+            </label>
+
+            </div>
+
+            <button id="assignBtn">Assign Employees</button>
+            <button onclick="closeModal()">Cancel</button> <!--Need to make sure the boxes clear when this is clicked-->
+
+        </div>
+
+        </div>
+
         <footer class="footer">   
             <p>© 2026 BreakRoom Training Platform</p>
         </footer>
