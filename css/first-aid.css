@@ -2,7 +2,9 @@
   display: block;
   margin: auto;
   border-radius: 8px solid;
-  width: 50%;
+  width: 200px;
+  height: 200px;
+
 }
 body{
     margin: 0;

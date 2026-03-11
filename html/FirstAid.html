@@ -1,6 +1,7 @@
 <html lang="en">
 <!--Link to CSS Stylesheet-->
 <link rel="stylesheet" href="../css/first-aid.css">
+
 <!--Link to JS Script-->
 <script src="../backend/controllers/firstAid.js" defer></script>
 
@@ -39,7 +40,7 @@
             <input type="radio" name="first_question" value="D">
             <label>D. 50</label><br>
 
-            <button onclick="checkAnswer()">Submit</button>
+            <button onclick="checkAnswer1()">Submit</button>
             <p id="result1"></p>
 
         </div>
@@ -81,7 +82,7 @@
                 <option value="back">Give 5 Back Blows</option>
                 <option value="repeat">Repeat</option>
             </select><br>
-            <button onclick="checkOrder()">Submit</button>
+            <button onclick="checkOrder2()">Submit</button>
 
             <p id="result2"></p>
         </div>
@@ -97,7 +98,7 @@
                 Question: What is the emergency number of Ireland? Fill the blank.
             </h3>
             <p>The emergency number in Ireland is <input type="text" id="answer3"></p>
-            <button onclick="checkText()">Submit</button>
+            <button onclick="checkText3()">Submit</button>
             <p id="result3"></p>
 
         </div>
@@ -111,14 +112,17 @@
                 <br>Question: If the power source cannot be turned off, what should you use separate body from machine?
             </h3>
 
-            <input type="radio" id="html" name="fourth question" value="HTML">
-            <label for="html">A. Your hands with gloves</label><br>
-            <input type="radio" id="html" name="fourth question" value="HTML">
-            <label for="html">B. A metal rod</label><br>
-            <input type="radio" id="html" name="fourth question" value="HTML">
-            <label for="html">C. A dry wooden object</label><br>
-            <input type="radio" id="html" name="fourth question" value="HTML">
-            <label for="html">D. A dry cloth</label><br>
+            <input type="radio" name="fourth_question" value="A">
+            <label>A. Your hands with gloves</label><br>
+            <input type="radio" name="fourth_question" value="B">
+            <label>B. A metal rod</label><br>
+            <input type="radio" name="fourth_question" value="C">
+            <label>C. A dry cloth</label><br>
+            <input type="radio" name="fourth_question" value="D">
+            <label>D. A dry wooden object</label><br>
+
+            <button onclick="checkAnswer4()">Submit</button>
+            <p id="result4"></p>
 
 
         </div>
@@ -130,21 +134,43 @@
             <img src="../images/fracture.jpg" alt="Fracture pictire" class="imgFirstAid">
             <h2 class="title">Puzzle 5: Fracture First-Aid</h2>
             <h3>After a snowy day, the pavement got icy. A someone just slipped off right before you and they were
-                obviously broken the arm. You have already called 911.
+                obviously broken the arm. You have already called emergency.
                 <br>
-                Question: What could be the first thing you should do for first-aid?
+                Question: What could be the things you should do for first-aid? True and False question.
             </h3>
 
-            <input type="radio" id="html" name="fifth question" value="HTML">
-            <label for="html">A. Ask the person is okay</label><br>
-            <input type="radio" id="html" name="fifth question" value="HTML">
-            <label for="html">B. Try to straighten the arm</label><br>
-            <input type="radio" id="html" name="fifth question" value="HTML">
-            <label for="html">C. Keep the arm still and support it with a splint or sling</label><br>
-            <input type="radio" id="html" name="fifth question" value="HTML">
-            <label for="html">D. Pull the arm to check if it is broken</label><br>
+            <p>1. You should try to straighten the arm before help arrives.</p>
+            <select id="question1">
+                <option value="">Select</option>
+                <option value="T">True</option>
+                <option value="F">False</option>
+            </select>
+            <p>2. Keep the arm still and support it witha split or sling.</p>
+            <select id="question2">
+                <option value="">Select</option>
+                <option value="T">True</option>
+                <option value="F">False</option>
+            </select>
+            <p>3. Ask the person how they are feeling.</p>
+            <select id="question3">
+                <option value="">Select</option>
+                <option value="T">True</option>
+                <option value="F">False</option>
+            </select>
+            <p>4. Pull the arm to check if it is broken.</p>
+            <select id="question4">
+                <option value="">Select</option>
+                <option value="T">True</option>
+                <option value="F">False</option>
+            </select><br>
+
+            <button onclick="checkTrue5()">Submit</button>
+            <p id="result5"></p>
 
         </div>
+
+        <button onclick="unlock()">Unlock the door</button>
+        <p id="final"></p>
 </body>
 
 </html>
