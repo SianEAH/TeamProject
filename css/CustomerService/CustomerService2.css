@@ -1,0 +1,49 @@
+body{
+background:#1cabb0;
+font-family:Arial;
+text-align:center;
+}
+
+.puzzleContainer{
+display:flex;
+justify-content:space-around;
+margin-top:40px;
+}
+
+.complaints, .responses{
+width:40%;
+}
+
+.complaint{
+background:white;
+padding:15px;
+margin:10px;
+cursor:grab;
+}
+
+.dropzone{
+background:#f4f7f0;
+padding:20px;
+margin:10px;
+min-height:80px;
+border:2px dashed #1cabb0;
+}
+
+/*button styling*/
+.submitBTN{
+    display: block;
+    margin: 40px auto;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #1cabb0;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.submitBTN:hover{
+    background-color: #188a8e;
+}
