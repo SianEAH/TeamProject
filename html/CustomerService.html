@@ -1,9 +1,40 @@
+<!DOCTYPE html>
+
 <html lang="en">
     <!--Link to CSS Stylesheet-->
+    <link rel="stylesheet" href="../css/CustomerService.css">
 
     <!--Link to JS Script-->
-    
-    <head> <title> </title></head>
+    <script src="../js/CustomerService.js" defer></script>
 
-    <body> </body>
+    <!--Responsiveness-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <head> <title>Pick the Correct Greeting</title></head>
+
+    <body> 
+        <div class="quizContainer">
+
+            <h1>Puzzle 1: Pick the Correct Greeting</h1>
+
+            <div id="questionBox">
+
+            <h3 id="questionText"></h3>
+
+            <div class="answers">
+
+            <button class="answerBTN" onclick="checkAnswer(0)"></button>
+            <button class="answerBTN" onclick="checkAnswer(1)"></button>
+            <button class="answerBTN" onclick="checkAnswer(2)"></button>
+            <button class="answerBTN" onclick="checkAnswer(3)"></button>
+
+            </div>
+
+            <button id="nextBTN" onclick="nextQuestion()">Next</button>
+
+            </div>
+
+        </div>
+    </body>
 </html>
