@@ -1,3 +1,6 @@
+//Resources used:
+//https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/drop_event
+
 function startComplaintPuzzle(){
 window.location.href = "CustomerService2.html";
 }
