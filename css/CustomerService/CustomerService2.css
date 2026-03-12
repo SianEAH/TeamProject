@@ -21,6 +21,10 @@ margin:10px;
 cursor:grab;
 }
 
+.complaint:active{ /*this may need additional fixing, as the grabbing is not smooth*/
+    cursor:grabbing;
+}
+
 .dropzone{
 background:#f4f7f0;
 padding:20px;
