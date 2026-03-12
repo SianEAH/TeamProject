@@ -1,4 +1,36 @@
-import QRCode from "qrcode";
+
+
+//function to get data from Backend
+async function getRealCertData() {
+    //getting the module name from the URL (e.g., certificate.html?module=FireSafety)
+    const urlParams = new URLSearchParams(window.location.search);
+    const moduleName = urlParams.get('module') || "General Training";
+
+    //getting the User ID we saved during login
+    const refID = localStorage.getItem('referenceID');
+
+    if (!refID) {
+        alert("Please log in first!");
+        window.location.href = "login.html";
+        return;
+    }
+
+    try {
+        //caling the BE get route 
+        const response = await fetch(`http://localhost:4000/api/user/certificate/${moduleName}?referenceID=${refID}`);
+        
+        if (!response.ok) throw new Error("Failed to fetch certificate");
+
+        const realData = await response.json();
+
+        //sending this data to the function
+        showCertificate(realData);
+
+    } catch (err) {
+        console.error("Error loading certificate:", err);
+        alert("Could not load certificate. Make sure the backend is running!");
+    }
+}
 
 function showCertificate(certData) {
   document.getElementById("employeeName").textContent = certData.employeeName; /*returns the text of this element*/
@@ -13,6 +45,9 @@ function showCertificate(certData) {
 
 /*when we click close, the cert will close*/
 document.addEventListener("DOMContentLoaded", () => { //wait until the DOM has loaded
+
+  //triggering the data fetch fucntion 
+  getRealCertData();
 
   document
     .getElementById("closeCertificateBTN")
