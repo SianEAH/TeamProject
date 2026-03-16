@@ -53,24 +53,26 @@ items.forEach(item => container.appendChild(item));
 }
 
 //Move to the next puzzle function
-function submitPuzzle(){
+function submitPuzzle() {
+    const zones = document.querySelectorAll(".dropzone");
+    let score = 0; //Reset score each time they submit
 
-const zones = document.querySelectorAll(".dropzone");
+    zones.forEach(zone => {
+        const complaint = zone.querySelector(".complaint");
+        // Check if there is something in the zone AND if it matches the correct answer
+        if (complaint && complaint.id === zone.dataset.answer) {
+            score++;
+        }
+    });
 
-zones.forEach(zone => {
-
-const complaint = zone.querySelector(".complaint");
-
-if(complaint && complaint.id === zone.dataset.answer){ //check for correct matches
-
-score++; //increase the score counter
-
-}
-
-});
-
-window.location.href = "CustomerService3Instructions.html";
-
+    //Checking the final score after the loop finishes
+    if (score === 8) {
+        alert("Well done! You have completed the Customer Service module.");
+        //connecting to feedback page 
+        window.location.href = "../feedbackPage.html";
+    } else {
+        alert("You got " + score + " out of 8 correct. Keep trying to match all complaints!");
+    }
 }
 
 shuffleComplaints();
