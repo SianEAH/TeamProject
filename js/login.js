@@ -51,7 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (response.ok) {
                 // storing the JWT token in the browser so we stay logged in
                 localStorage.setItem('token', data.token);
-                
+                //storing in local storage
+                localStorage.setItem('referenceID', referenceID);
                 // routing the user to the dashboard
                 if (isEmployee) {
                     window.location.href = "EmployeeDashboard.html";
