@@ -4,7 +4,6 @@
   let puzzle4 = false;
   let puzzle5 = false;
 
-
 function checkAnswer1(){
   const answers = document.getElementsByName("first_question");
   let selected = null;
@@ -119,3 +118,6 @@ function unlock(){
   }
 }
 
+function enterFirstAid(){
+  window.location.href = "FirstAid.html";
+}
