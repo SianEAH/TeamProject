@@ -99,3 +99,19 @@ input[type="password"] {
             box-sizing: border-box;
 }
 
+/*Handles the registration*/
+.register-link {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.register-link span { /*Will make the link match my colour scheme*/
+    color: #1cabb0;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#registerFields {
+    display: none; /*hidden for a JS function*/
+}
+

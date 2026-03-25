@@ -1,25 +1,48 @@
 //Get the info from the fields
-const employerFields = document.getElementById("employerFields");
-const employeeFields = document.getElementById("employeeFields");
+let employerFields, employeeFields, registerFields;
+//Wait for the DOM to load 
+document.addEventListener("DOMContentLoaded", () => {
+
+    employerFields = document.getElementById("employerFields");
+    employeeFields = document.getElementById("employeeFields");
+    registerFields = document.getElementById("registerFields");
+
+});
 
 function showEmployer() {
     employerFields.style.display = "block";
     employeeFields.style.display = "none";
-    document.getElementById("employeeBTN").style.display = "none"; //hide the employee button
+    registerFields.style.display = "none";
+
+    document.getElementById("employeeBTN").style.display = "none";
 }
 
 function showEmployee() {
     employeeFields.style.display = "block";
     employerFields.style.display = "none";
-    document.getElementById("employerBTN").style.display = "none"; //hide the employer buttom
+    registerFields.style.display = "none";
+
+    document.getElementById("employerBTN").style.display = "none";
 }
 
 function resetForm() {
-    document.getElementById("employerFields").style.display = "none";
-    document.getElementById("employeeFields").style.display = "none";
+    employerFields.style.display = "none";
+    employeeFields.style.display = "none";
+    registerFields.style.display = "none";
+
     document.getElementById("employerBTN").style.display = "inline-block";
     document.getElementById("employeeBTN").style.display = "inline-block";
-};
+}
+
+//for registering
+function showRegister() {
+    registerFields.style.display = "block";
+    employerFields.style.display = "none";
+    employeeFields.style.display = "none";
+
+    document.getElementById("employerBTN").style.display = "none";
+    document.getElementById("employeeBTN").style.display = "none";
+}
 
 //Connecting with the backend route
 
@@ -69,3 +92,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+//register a new company/employer function *NEEDS FINISHING*
+async function registerEmployer() {
+    const companyName = document.getElementById("regCompanyName").value;
+    const companyId = document.getElementById("regCompanyId").value;
+    const email = document.getElementById("regEmail").value;
+    const password = document.getElementById("regPassword").value;
+    const confirmPassword = document.getElementById("regConfirmPassword").value;
+    //Make sure all the fields are filled in
+    if (!companyName || !companyId || !email || !password) {
+        alert("Please fill in all the fields to register!");
+        return;
+    }
+}
