@@ -4,7 +4,8 @@
 async function getRealCertData() {
     //getting the module name from the URL (e.g., certificate.html?module=FireSafety)
     const urlParams = new URLSearchParams(window.location.search);
-    const moduleName = urlParams.get('module') || "General Training";
+    // Check the "Locker" first. If empty, default to General Training.
+    const moduleName = localStorage.getItem('currentModuleName') || "General Training";
 
     //getting the User ID we saved during login
     const refID = localStorage.getItem('referenceID');
