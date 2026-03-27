@@ -1,0 +1,61 @@
+<html lang="en">
+<!--Link to CSS Stylesheet-->
+<link rel="stylesheet" href="../../css/first-aid.css">
+
+<!--Link to JS Script-->
+<script src="../../backend/controllers/firstAid.js" defer></script>
+
+<head>
+  <title>Fisrt Aid</title>
+</head>
+
+<body>
+
+  <div class="puzzle5">
+    <!--Industrie (2024). GENIUS TRADERS. [online] Geniustraders.co.in. 
+            Available at: https://www.geniustraders.co.in/first_aid.php [Accessed 6 Mar. 2026].-->
+
+    <img src="../../images/fracture.jpg" alt="Fracture pictire" class="imgFirstAid">
+    <div id="timer">00 : 30</div>
+    <h2 class="title">Puzzle 5: Fracture First-Aid</h2>
+    <h3>After a snowy day, the pavement got icy. A someone just slipped off right before you and they were
+      obviously broken the arm. You have already called emergency.
+      <br>
+      Question: What could be the things you should do for first-aid? True and False question.
+    </h3>
+
+    <p>1. You should try to straighten the arm before help arrives.</p>
+    <select id="question1">
+      <option value="">Select</option>
+      <option value="T">True</option>
+      <option value="F">False</option>
+    </select>
+    <p>2. Keep the arm still and support it witha split or sling.</p>
+    <select id="question2">
+      <option value="">Select</option>
+      <option value="T">True</option>
+      <option value="F">False</option>
+    </select>
+    <p>3. Ask the person how they are feeling.</p>
+    <select id="question3">
+      <option value="">Select</option>
+      <option value="T">True</option>
+      <option value="F">False</option>
+    </select>
+    <p>4. Pull the arm to check if it is broken.</p>
+    <select id="question4">
+      <option value="">Select</option>
+      <option value="T">True</option>
+      <option value="F">False</option>
+    </select><br><br>
+
+    <button onclick="checkTrue5()">Submit</button>
+    <p id="result5"></p>
+
+  </div>
+  <button onclick="unlock()">Unlock the door</button>
+  <p id="final"></p>
+
+</body>
+
+</html>
