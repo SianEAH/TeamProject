@@ -2,15 +2,45 @@
   display: block;
   margin: auto;
   border-radius: 8px solid;
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  height: 400px;
 
 }
 body{
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif; /*fonts for the browser to try*/
-    background-color: #1cabb0;
+    text-align: center;
+}
+.timer{
+  font-size: 2em;
+  background-color: aquamarine;
+  padding: 20px 40px;
+  border-radius: 10px;
 }
 .title{
+  margin: auto;
+  margin-top: 2em;
+  padding: 40px;
+  background-color: azure;
   text-align: center;
+  width: 60%;
+}
+.startBTn{
+  background-color: white;
+  font-size: 1em;
+  display: center;
+  font-family: sans-serif;
+  margin-top: 25px;
+  padding: 10px 15px;
+}
+.intro{
+  background-color: azure;
+  width: 60%;
+  margin: auto;
+  margin-top: 2em;
+  padding: 40px;
+}
+.intro ul{
+  text-align: left;
+  margin-top: 20px;
 }
