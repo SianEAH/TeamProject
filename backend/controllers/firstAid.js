@@ -1,10 +1,9 @@
-
-
-let puzzle1 = false;
+  let puzzle1 = false;
   let puzzle2 = false;
   let puzzle3 = false;
   let puzzle4 = false;
   let puzzle5 = false;
+
 
 function checkAnswer1(){
   const answers = document.getElementsByName("first_question");
@@ -22,7 +21,6 @@ function checkAnswer1(){
     if(selected === "C" ){
       document.getElementById("result1").innerText = "Correct!";
       puzzle1 = true;
-      window.location.href = "secondpuzzle.html";
     }else{
       document.getElementById("result1").innerText = "Incorrect!"
 
@@ -48,7 +46,6 @@ function checkOrder2(){
   if(correct){
     document.getElementById("result2").innerHTML = "Correct";
     puzzle2 = true;
-    window.location.href = "thirdpuzzle.html";
   }else{
     document.getElementById("result2").innerHTML = "Incorrect";
   }
@@ -60,7 +57,6 @@ function checkText3(){
   if(userInput === "112"){
     document.getElementById("result3").innerHTML = "Correct";
     puzzle3 =true;
-    window.location.href = "fourthpuzzle.html";
   }else if(userInput === "999"){
     document.getElementById("result3").innerHTML = "Correct";
     puzzle3 = true;
@@ -85,7 +81,6 @@ function checkAnswer4(){
   if(selected4 === "D"){
     document.getElementById("result4").innerHTML = "Correct";
     puzzle4 = true;
-    window.location.href = "fifthpuzzle.html";
   }else{
     document.getElementById("result4").innerHTML = "Incorrect"
   }
@@ -124,21 +119,3 @@ function unlock(){
   }
 }
 
-function enterFirstAid(){
-  window.location.href = "FirstAid/index.html";
-}
-
-function startBtn(){
-  window.location.href = "firstpuzzle.html";
-}
-
-let seconds = 30;
-function updateTimer(){
-  const timer = document.getElementById("timer");
-  const mins = String(Math.floor(seconds/60)).padStart(2,`0`);
-  const secs = String(seconds % 60).padStart(2,`0`);
-  timer.textContent = `${mins} : ${secs}`;
-  if(seconds > 0)seconds--;
-}
-updateTimer();
-setInterval(updateTimer,1000);

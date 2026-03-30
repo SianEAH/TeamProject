@@ -1,4 +1,5 @@
 //Get the info from the fields
+//Sian
 let employerFields, employeeFields, registerFields;
 //Wait for the DOM to load 
 document.addEventListener("DOMContentLoaded", () => {
@@ -45,7 +46,7 @@ function showRegister() {
 }
 
 //Connecting with the backend route
-
+//Hamza
 document.addEventListener("DOMContentLoaded", () => {
     // getting the form to control what happens when user clicks login
     const form = document.querySelector("form");
@@ -61,12 +62,20 @@ document.addEventListener("DOMContentLoaded", () => {
         const referenceID = section.querySelector("input[type='text']").value;
         const password = section.querySelector("input[type='password']").value;
 
+        //Checking if the fields are filled in
+        //Sian
+        if (!referenceID || !password) {
+            alert("Please fill in all the fields to log in.");
+            return; // stops login request
+        }
+        //End of Sian's code
+
         // communicating with the backend
         try {
             const response = await fetch('http://localhost:4000/api/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ referenceID, password })
+                body: JSON.stringify({ referenceID, password, role: isEmployee ? "employee" : "employer" })
             });
 
             const data = await response.json();
@@ -94,6 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //register a new company/employer function *NEEDS FINISHING*
+//Sian
 async function registerEmployer() {
     const companyName = document.getElementById("regCompanyName").value;
     const companyId = document.getElementById("regCompanyId").value;
