@@ -2,17 +2,25 @@ const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
 const Employee = require("../models/Employee");
-//employer needs to be added
+const Employer = require("../models/Employer");
 
 router.post("/", async (req, res) => {
-  const { referenceID, password } = req.body;
+  const { referenceID, password, role } = req.body; //will allow us to handle both
 
   try {
     // Checking if employee exists in the DB
     let user = await Employee.findOne({ referenceID });
     if (!user) {
       return res.status(400).json({ message: "Invalid Reference ID" });
-    }
+    } else if (role === "employer") { //Sian
+      user = await Employer.findOne({ companyID: referenceID });
+      if (!user) {
+        return res.status(400).json({ message: "Invalid Company ID" });
+  } else {
+    return res.status(400).json({ message: "Invalid role" });
+  }
+}
+  //End of Sian's code
 
     // Checking password by matching the strings
     if (user.password !== password) {
@@ -26,6 +34,7 @@ router.post("/", async (req, res) => {
         name: user.name,
         jobTitle: user.jobTitle,
         completed: user.completedModules,
+        role: role, //Sian
       },
     };
 
