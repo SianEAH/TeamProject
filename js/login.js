@@ -1,6 +1,7 @@
 //Get the info from the fields
 //Sian
 let employerFields, employeeFields, registerFields;
+let currentRoll = null; //to make sure the role is the right one
 //Wait for the DOM to load 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -11,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function showEmployer() {
+    currentRole = "employer"; //to make sure it's employer
     employerFields.style.display = "block";
     employeeFields.style.display = "none";
     registerFields.style.display = "none";
@@ -19,6 +21,7 @@ function showEmployer() {
 }
 
 function showEmployee() {
+    currentRole = "employee"; //to make sure it's employee
     employeeFields.style.display = "block";
     employerFields.style.display = "none";
     registerFields.style.display = "none";
@@ -33,6 +36,10 @@ function resetForm() {
 
     document.getElementById("employerBTN").style.display = "inline-block";
     document.getElementById("employeeBTN").style.display = "inline-block";
+    //Clear the input fields
+    document.querySelectorAll("input").forEach(input => {
+        input.value = "";
+    })
 }
 
 //for registering
@@ -57,16 +64,35 @@ document.addEventListener("DOMContentLoaded", () => {
         // figure out if they're trying to log in as an Employee or Employer
         const isEmployee = employeeFields.style.display === "block";
         
-        // getting the data from the employee or employer section
-        const section = isEmployee ? employeeFields : employerFields;
-        const referenceID = section.querySelector("input[type='text']").value;
-        const password = section.querySelector("input[type='password']").value;
+        //getting the data from the employee or employer section
+        //Sian
+        const referenceInput = isEmployee
+        ? document.getElementById("referenceID")
+        : document.getElementById("companyID");
+
+        const passwordInput = isEmployee
+        ? document.getElementById("employeePassword")
+        : document.getElementById("employerPassword");
+
+        //To prevent crashing issue encountered
+        if(!referenceInput || !passwordInput) {
+            console.error("Input fields not found",  {
+            referenceInput,
+            passwordInput,
+            isEmployee
+            });
+            alert("Form error - input issues");
+            return; //come out of loop, to prevent crashing issue
+        }
+
+        const referenceID = referenceInput.value.trim();
+        const password = passwordInput.value.trim();
 
         //Checking if the fields are filled in
         //Sian
         if (!referenceID || !password) {
             alert("Please fill in all the fields to log in.");
-            return; // stops login request
+            return; 
         }
         //End of Sian's code
 
@@ -102,17 +128,59 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-//register a new company/employer function *NEEDS FINISHING*
+//register a new company/employer function
 //Sian
 async function registerEmployer() {
-    const companyName = document.getElementById("regCompanyName").value;
-    const companyId = document.getElementById("regCompanyId").value;
-    const email = document.getElementById("regEmail").value;
-    const password = document.getElementById("regPassword").value;
-    const confirmPassword = document.getElementById("regConfirmPassword").value;
-    //Make sure all the fields are filled in
-    if (!companyName || !companyId || !email || !password) {
-        alert("Please fill in all the fields to register!");
+    //get the info from the fields
+    const companyName = document.getElementById("regCompanyName").value.trim();
+    const companyId = document.getElementById("regCompanyId").value.trim();
+    const email = document.getElementById("regEmail").value.trim();
+    const password = document.getElementById("regPassword").value.trim();
+    const confirmPassword = document.getElementById("regConfirmPassword").value.trim();
+
+    //Check if any fields are empty, all must be filled
+    if (!companyName || !companyId || !email || !password || !confirmPassword) {
+        alert("Please fill in all fields to register!");
         return;
+    }
+
+    //Check if the passwords match
+    if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    try {
+        const response = await fetch("http://localhost:4000/api/registerEmployer", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                companyName,
+                companyID: companyId,
+                email,
+                password
+            })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert("Registration successful! New account created.");
+            //Clear the input fields
+            document.getElementById("regCompanyName").value = "";
+            document.getElementById("regCompanyId").value = "";
+            document.getElementById("regEmail").value = "";
+            document.getElementById("regPassword").value = "";
+            document.getElementById("regConfirmPassword").value = "";
+            resetForm(); //reset the form
+        } else {
+            alert(data.message || "Registration failed. Please try again");
+        }
+
+    } catch (err) { //catch any errors
+        console.error(err);
+        alert("Server error");
     }
 }

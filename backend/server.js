@@ -18,6 +18,7 @@ app.use(express.json());
 // Main Route Gateways
 // These will link to the route files once we create them in the routes folder
 app.use('/api/login', require('./routes/login'));
+app.use('/api/registerEmployer', require('./routes/registerEmployer.js'));
 app.use('/api/user', require('./routes/user'));
 app.use('/api/puzzles', require('./routes/puzzles'));
 

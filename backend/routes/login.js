@@ -9,18 +9,25 @@ router.post("/", async (req, res) => {
 
   try {
     // Checking if employee exists in the DB
-    let user = await Employee.findOne({ referenceID });
-    if (!user) {
-      return res.status(400).json({ message: "Invalid Reference ID" });
-    } else if (role === "employer") { //Sian
+    let user;
+
+    if (role === "employee") {
+      user = await Employee.findOne({ referenceID });
+
+      if (!user) {
+        return res.status(400).json({ message: "Invalid Reference ID" });
+      }
+
+    } else if (role === "employer") {
       user = await Employer.findOne({ companyID: referenceID });
+
       if (!user) {
         return res.status(400).json({ message: "Invalid Company ID" });
-  } else {
-    return res.status(400).json({ message: "Invalid role" });
-  }
-}
-  //End of Sian's code
+      }
+
+    } else {
+      return res.status(400).json({ message: "Invalid role" });
+    }
 
     // Checking password by matching the strings
     if (user.password !== password) {
