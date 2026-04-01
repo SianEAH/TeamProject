@@ -26,7 +26,31 @@ body {
    text-align: center;
 }
 
+/*Handling the module status*/
+/*Sian*/
+.status {
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.status.complete {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.status.in-progress {
+  background-color: #FFC107;
+  color: black;
+}
+
+.status.incomplete {
+  background-color: #F44336;
+  color: white;
+}
+
 /*This deals with the Employer dashboard: employee list for assignment*/
+/*Sian*/
 .modal {
   display: none;
   position: fixed;
