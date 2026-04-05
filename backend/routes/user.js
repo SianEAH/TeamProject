@@ -27,15 +27,16 @@ router.get('/certificate/:moduleName', async (req, res) => {
     }
 });
 
-//update module status route dynamically
+//update module status route dynamically (for logged in accounts)
 //Sian
+//in-complete modules
 router.get('/', async (req, res) => {
     try {
         const referenceID = req.query.referenceID;
 
         const user = await Employee.findOne({ referenceID });
 
-        //error handling
+        //error handling (if not user is found)
         if (!user) return res.status(404).json({ msg: "User not found" });
 
         let modules = user.completedModules; //let the modules = to the user's completed modules
@@ -49,6 +50,7 @@ router.get('/', async (req, res) => {
         //the default modules in the Array
         const defaultModules = ["Customer Service", "Fire Safety", "First Aid"];
 
+        //loop through the dummy created account
         defaultModules.forEach(name => {
             if(!modules.find(m => m.moduleName === name)) {
                 modules.push({ moduleName: name, status: "incomplete"}); //push the status for the module names, to overwrite what's already been created
@@ -63,13 +65,48 @@ router.get('/', async (req, res) => {
     }
 });
 
+//changing the module status to complete
+router.post("/complete", async (req, res) => {
+  const { moduleName, referenceID } = req.body;
+
+  try {
+    const user = await Employee.findOne({ referenceID });
+
+    //if the user can't be found
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    //trim and lower case to prevent bugs
+    const module = user.completedModules.find(m => m.moduleName.toLowerCase().trim() === moduleName.toLowerCase().trim());
+
+    //if there is no module
+    if(!module) {
+        return res.status(404).json({ message: "Module not found"});
+    }
+
+    module.status = "complete"; //change the status to complete
+
+    user.markModified('completedModules'); //let MongoDB know of the change
+
+    await user.save(); //save it
+
+    res.json({ message: "Module marked as complete" });
+
+  } catch (err) { //error handling
+    console.error(err);
+    res.status(500).json({ message: "Error updating module status" });
+  }
+});
+
+//in-progress modules
 router.post('/start', async (req, res) => {
     try {
         const { moduleName, referenceID } = req.body;
 
         const user = await Employee.findOne({ referenceID });
 
-        //error handling
+        //error handling (no user)
         if (!user) return res.status(404).json({ msg: "User not found" });
 
         let modules = []; //modules starts as an empty Array
@@ -95,11 +132,11 @@ router.post('/start', async (req, res) => {
                                                //Mongoose: markModified ensures changes to nested objects/arrays are saved
                                                //https://mongoosejs.com/docs/5.x/docs/api/document.html#document_Document-markModified
 
-        await user.save();
+        await user.save(); //save it
 
         res.json({ message: "Updated"});
 
-    } catch (err) {
+    } catch (err) { //error handling
         console.error(err);
         res.status(500).send("Server error");
     }

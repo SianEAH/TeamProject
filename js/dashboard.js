@@ -1,19 +1,18 @@
 /*Sian*/
+/*Load Modules*/
 async function loadModules() {
-    console.log("loadModules running"); //for debugging
-    const token = localStorage.getItem("token"); //get the webtoken
+  const token = localStorage.getItem("token"); //get the webtoken
 
-  const referenceID = localStorage.getItem("referenceID");
+  const referenceID = localStorage.getItem("referenceID"); //store the referenceID in local storage
   
   const res = await fetch(`http://localhost:4000/api/user?referenceID=${referenceID}`);
 
   const data = await res.json();
-  console.log("DATA RECIEVED:", data); //for debugging
   displayModules(data.completed); //get the completed modules for the user
 }
 
+/*Display Modules*/
 function displayModules(modules) {
-  console.log("MODULES:", modules); //for debugging
 
   //For already created data, as created account was not created with the right module data type
   if(!Array.isArray(modules)) {
@@ -31,12 +30,23 @@ function displayModules(modules) {
 
       //match module name
       if (title.toLowerCase().trim() === module.moduleName.toLowerCase().trim()) {
-
+        //module status
         const statusSpan = card.querySelector(".status");
         //add the status of the module
         if (statusSpan) {
-          statusSpan.classList.add(module.status);
-          statusSpan.innerText = module.status.replace("-", " ");
+          statusSpan.classList.remove("complete", "in-progress", "incomplete");
+          statusSpan.className = "status";
+
+          if (module.status === "complete") {
+              statusSpan.innerText = "Complete ✅"; //HTML Unicode Dingbats: https://www.w3schools.com/charsets/ref_utf_dingbats.asp
+              statusSpan.classList.add("bg-success", "text-dark");
+          } else if (module.status === "in-progress") {
+              statusSpan.innerText = "In Progress";
+              statusSpan.classList.add("bg-warning", "text-dark");
+          } else {
+              statusSpan.innerText = "Incomplete ❌"; //HTML Unicode Dingbats: https://www.w3schools.com/charsets/ref_utf_dingbats.asp
+              statusSpan.classList.add("bg-danger", "text-dark");
+          }
         }
       }
     });

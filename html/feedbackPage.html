@@ -2,9 +2,11 @@
 
 <html lang="en">
   <head>
+    
     <!--Link to CSS file-->
     <link rel="stylesheet" href="../css/dashboard.css" />
     <!--Link to JS file-->
+    <script src="../js/feedbackPage.js"></script>
 
     <!--Responsiveness-->
     <meta charset="UTF-8" />
@@ -61,8 +63,12 @@
 
     <main class="flex-fill container mt-5">
       <div id="feedbackFormSection">
-        <h2>Module Feedback</h2>
-        <p>
+        <h2>Module History</h2>
+
+        <div id="feedbackList">
+
+        </div>
+        <!----<p>
           Please let us know how you found the module to receive your
           certificate.
         </p>
@@ -130,16 +136,16 @@
           </button>
         </div>
       </div>
-    </main>
+    </main>-->
 
     <!--Footer-->
     <footer class="footer">
       <p>© 2026 BreakRoom Training Platform</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
-<script src="../js/certificate.js"></script>
+<!----<script src="../js/certificate.js"></script>-->
 
-<script>
+<!----<script>
     // Simple function to bridge the Feedback to the Certificate logic
     function submitFeedback() {
         alert("Feedback submitted! Generating your certificate...");
@@ -150,6 +156,6 @@
         // Call the function inside certificate.js to fetch the real data
         getRealCertData(); 
     }
-</script>
+</script>-->
   </body>
 </html>

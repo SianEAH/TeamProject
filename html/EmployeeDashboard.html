@@ -2,125 +2,133 @@
 
 <html lang="en">
 
-<head>
+    <head>
 
-    <title>Dashboard</title>
+        <title>Dashboard</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
+        <!--Bootstrap-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="../css/dashboard.css" />
-    <script src="../js/dashboard.js" defer></script>
+        <!--Link to CSS-->
+        <link rel="stylesheet" href="../css/dashboard.css" />
+        <!--Link to JS-->
+        <script src="../js/dashboard.js" defer></script>
 
-</head>
+    </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="../html/EmployeeDashboard.html">- Breakroom -</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="EmployeeDashboard.html">Modules</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="feedbackPage.html">Feedback</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="certificatePage.html">Certificates</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <div class="card-group">
-        <div class="card">
-            <img src="../images/firstAid.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">First Aid</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                    voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                <a href="FirstAidInstructions.html?module=FirstAid" class="btn btn-primary">Enter</a>
-                <span class="status"></span>
+    <body>
+        <!--Bootstrap-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="../html/EmployeeDashboard.html">- Breakroom -</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="EmployeeDashboard.html">Modules</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="feedbackPage.html">Feedback</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="certificatePage.html">Certificates</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="card-group">
+            <div class="card">
+                <img src="../images/firstAid.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">First Aid</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <a href="FirstAidInstructions.html?module=FirstAid" class="btn btn-primary">Enter</a>
+                    <span class="status"></span>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../images/customerService.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Customer Service</h5>
+                    <p class="card-text">Module for getting employees more up-to-date with customer service practices. 
+                        Employees will learn about greetings customers properly, handling complaints and spotting mistakes in a customer interaction</p>
+                    <a href="../html/CustomerService/CustomerServiceInstructions.html?module=FireSafety" class="btn btn-primary">Enter</a>            
+                    <span class="status"></span>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../images/fireSafety.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Fire Safety</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <a href="FireSafetyInstructions.html?module=FireSafety" class="btn btn-primary">Enter</a>
+                    <span class="status"></span>
+                </div>
             </div>
         </div>
-        <div class="card">
-            <img src="../images/customerService.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Customer Service</h5>
-                <p class="card-text">Module for getting employees more up-to-date with customer service practices. 
-                    Employees will learn about greetings customers properly, handling complaints and spotting mistakes in a customer interaction</p>
-                <a href="../html/CustomerService/CustomerServiceInstructions.html?module=FireSafety" class="btn btn-primary">Enter</a>            
-                <span class="status"></span>
-            </div>
-        </div>
-        <div class="card">
-            <img src="../images/fireSafety.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Fire Safety</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                    voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-               <a href="FireSafetyInstructions.html?module=FireSafety" class="btn btn-primary">Enter</a>
-                <span class="status"></span>
-            </div>
-        </div>
-    </div>
-    <footer class="footer">
-        <p>© 2026 BreakRoom Training Platform</p>
-    </footer>
-    <script>
-    // This function puts the "Module Name" into the browser's memory
-    function setModule(name) {
-        localStorage.setItem('currentModuleName', name);
-    }
 
-    // attaching the logic
-  document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll('.card-body a').forEach(link => {
-    link.addEventListener('click', async function() {
+        <!--Footer-->
+        <footer class="footer">
+            <p>© 2026 BreakRoom Training Platform</p>
+        </footer>
 
-        const moduleTitle = this.parentElement.querySelector('.card-title').innerText;
 
-        //store current module
-        //Sian
-        localStorage.setItem('currentModuleName', moduleTitle);
-
-        const referenceID = localStorage.getItem("referenceID");
-
-        //Change to in-progress
-        try {
-            await fetch("http://localhost:4000/api/user/start", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    moduleName: moduleTitle,
-                    referenceID: referenceID
-                })
-            }); //End of Sian's code
-        } catch (err) {
-            console.error("Error updating module:", err);
+        <script>
+        // This function puts the "Module Name" into the browser's memory
+        function setModule(name) {
+            localStorage.setItem('currentModuleName', name);
         }
 
-        //continue to module page
+        // attaching the logic
+        document.addEventListener("DOMContentLoaded", () => { //when the DOM loads
+        //loop through the cards
+        document.querySelectorAll('.card-body a').forEach(link => {
+            link.addEventListener('click', async function() {
+
+            const moduleTitle = this.parentElement.querySelector('.card-title').innerText;
+
+            //store current module
+            //Sian
+            //add to localStorage as a fail-safe
+            localStorage.setItem('currentModuleName', moduleTitle); //moduleName is the moduleTitle
+
+            const referenceID = localStorage.getItem("referenceID"); //get the referenceID
+
+            //Change to in-progress (module status)
+            try {
+                await fetch("http://localhost:4000/api/user/start", { //get what it started as (incomplete)
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        moduleName: moduleTitle,
+                        referenceID: referenceID
+                    })
+                }); //End of Sian's code
+            } catch (err) { //error handling
+                console.error("Error updating module:", err);
+            }
+            });
         });
+
     });
-
-});
-    </script>
+        </script>
 
 
-</body>
+    </body>
 
 </html>

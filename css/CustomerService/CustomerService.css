@@ -1,4 +1,5 @@
 /*Puzzle 1 Styling*/
+/*Sian*/
 body{
 background:#1cabb0;
 font-family:Arial;
@@ -40,4 +41,22 @@ background:#1cabb0;
 color:white;
 border:none;
 cursor:pointer;
+}
+
+.hintBTN {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 25px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #a2abac;
+    color: black;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.hintBTN:hover {
+    background-color: #1cabb0;
 }

@@ -2,6 +2,7 @@
     background-color: #1cabb0;
 }
 
+/*Bootstrap element*/
 .navbar,
 .navbar-expand-lg{
 	padding:0px;
@@ -36,7 +37,7 @@ body {
 
 .status.complete {
   background-color: #4CAF50;
-  color: white;
+  color: black;
 }
 
 .status.in-progress {
@@ -46,7 +47,7 @@ body {
 
 .status.incomplete {
   background-color: #F44336;
-  color: white;
+  color: black;
 }
 
 /*This deals with the Employer dashboard: employee list for assignment*/
@@ -54,7 +55,7 @@ body {
 .modal {
   display: none;
   position: fixed;
-  z-index: 1000;
+  z-index: 1000; /*put it in front of the dashboard*/
   left: 0;
   top: 0;
   width: 100%;
@@ -83,6 +84,7 @@ body {
   font-size: 16px;
 }
 
+/*Keep Btn lower case, as upper case caused bugs*/
 #assignBtn {
   padding: 10px 20px;
   background: #1cabb0;
