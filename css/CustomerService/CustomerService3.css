@@ -1,0 +1,53 @@
+/*Puzzle 3 CSS*/
+/*Sian*/
+
+body {
+  background: #1cabb0;
+  font-family: Arial;
+  text-align: center;
+}
+
+.conversation {
+  width: 60%;
+  margin: 40px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.chatBox {
+  text-align: left;
+}
+
+.line {
+  padding: 10px;
+  margin: 5px 0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/*tint the line a bit when hovering*/
+.line:hover {
+  background-color: #f0f0f0;
+}
+
+/*tint to light red for readability*/
+.line.employee.selected {
+  background-color: #ffcccc;
+}
+
+.submitBTN {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #1cabb0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.submitBTN:hover {
+  background-color: #188a8e;
+}

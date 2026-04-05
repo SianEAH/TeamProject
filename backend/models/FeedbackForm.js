@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const FeedbackSchema = new mongoose.Schema({
-    time: { type: String, required: true }, //maybe type time?
+    time: { type: String, required: true }, 
     score: { type: Number, required: true },
     name: { type: String, required: true },
     passOrFail: { type: String, required: true }

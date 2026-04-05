@@ -1,0 +1,53 @@
+<!--Form received as a pop-up when a module is completed-->
+<!--Sian-->
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <!--Link to CSS-->
+        <link rel="stylesheet" href="../css/certificate.css">
+
+        <!--Link to JS Script-->
+        <script src="../js/feedback.js" defer></script> <!--Wait for HTML script-->
+        
+        <!--Mobile Responsiveness-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>End of Module</title>
+    </head>
+
+    <body>
+        <!--Same pop-up styling as cert-->
+        <div id="feedbackModal" class="modal-overlay hidden">
+
+            <div class="certificateCard"> 
+
+                <h1>Module Feedback</h1>
+
+                <p>Employee:</p>
+                <h2 id="fbEmployeeName">Name</h2> <!--Added fb to prevent name clashes-->
+
+                <p>Module:</p>
+                <h3 id="fbModuleName">Module Name</h3>
+
+                <p>Score:</p>
+                <h2 id="fbScore">0%</h2>
+
+                <p>Time Taken:</p>
+                <h3 id="fbTime">0s</h3>
+
+                <p id="fbStatus"></p>
+
+                <button id="viewCertBTN" style="display:none;">View Certificate</button>
+                <button id="closeFeedbackBTN">Close</button>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

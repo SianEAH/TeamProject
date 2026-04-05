@@ -1,3 +1,6 @@
+/*Create Module CSS*/
+/*Sian*/
+
 form {
   max-width: 800px;
   margin: auto;
@@ -31,6 +34,7 @@ input, textarea, select {
     background-color: #1cabb0;
 }
 
+/*deals with Bootstrap element*/
 .navbar,
 .navbar-expand-lg{
 	padding:0px;

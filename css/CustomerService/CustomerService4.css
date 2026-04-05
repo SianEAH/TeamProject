@@ -1,0 +1,45 @@
+/*Puzzle 4 CSS*/
+/*Sian*/
+
+body {
+  background: #1cabb0;
+  font-family: Arial;
+  text-align: center;
+}
+
+.quizContainer {
+  background: white;
+  width: 60%;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.answerBTN {
+  display: block;
+  width: 80%;
+  margin: 10px auto;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #f4f7f0;
+  cursor: pointer;
+}
+
+.answerBTN:hover {
+  background: #ddd;
+}
+
+.hintBTN {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 25px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #1cabb0
+    color black;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s; /*add a slight delay to the colour tinting*/
+}
