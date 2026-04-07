@@ -7,6 +7,10 @@ let hintLevel = 0;
 let hintUsed = false;
 let score = 0;
 
+//Transition Video Variables
+const overlay = document.getElementById("transitionOverlay");
+const video = document.getElementById("transitionVideo");
+
 //Starting my puzzle
 function startMistakesPuzzle(){
     window.location.href = "CustomerService3.html";
@@ -39,15 +43,16 @@ document.getElementById("submitMistakesPuzzle").addEventListener("click", functi
     //prevent the scoring from breaking
     if (score < 0) score = 0;
 
-    //setting the score locally as fail-safe
+    //Save score to local storage
     localStorage.setItem("p3Score", score);
 
-    //count the bad lines
     let totalBad = document.querySelectorAll(".line.employee.bad").length;
     localStorage.setItem("p3Total", totalBad);
 
-    //move to the next puzzle
-    window.location.href = "CustomerService4Instructions.html"
+    //Play transition video
+    overlay.classList.remove("hidden");
+    video.currentTime = 0;
+    video.play();
 
 });
 
@@ -73,6 +78,16 @@ function showHint() {
 
     hintLevel++; //increase the hint level counter
 }
+
+//When my transition video ends
+video.addEventListener("ended", () => {
+
+  overlay.classList.add("hidden");
+
+  //Move to final puzzle
+  window.location.href = "CustomerService4Instructions.html";
+
+});
 
 //resetting the hint system
 hintLevel = 0;

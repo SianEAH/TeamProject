@@ -1,4 +1,10 @@
 //Sian
+//Video Transition
+const overlay = document.getElementById("transitionOverlay");
+const video = document.getElementById("transitionVideo");
+
+let pendingAction = null; //what should happen after video
+
 //Start Puzzle
 function startPuzzle(){
 
@@ -128,20 +134,18 @@ answerButtons.forEach(btn => btn.disabled = true); //then disable the buttons
 //Going to the next question
 function nextQuestion(){
 
-currentQuestion++; //increase our question counter
+  currentQuestion++; //increase the currentQuestion counter
 
-if(currentQuestion < questions.length){ //if there's more questions, load the questions
+  //if there's more questions, go through the questions
+  if(currentQuestion < questions.length){
+    loadQuestion();
+    return;
+  }
 
-loadQuestion();
-
-} else {
-    //set the score for puzzle 1 in local storage as fail-safe
-    localStorage.setItem("p1Score", score);
-    localStorage.setItem("p1Total", questions.length);
-
-    window.location.href = "CustomerService2Instructions.html"; //go to the next puzzle
-
-}
+  //on the last question, play transition video
+  overlay.classList.remove("hidden");
+  video.currentTime = 0;
+  video.play();
 
 }
 
@@ -160,5 +164,19 @@ function showHint() {
     } 
 
 }
+
+//When the video ends
+video.addEventListener("ended", () => {
+
+  overlay.classList.add("hidden");
+
+  //Save score to local storage
+  localStorage.setItem("p1Score", score);
+  localStorage.setItem("p1Total", questions.length);
+
+  //Go to next puzzle instructions
+  window.location.href = "CustomerService2Instructions.html";
+
+});
 
 loadQuestion();
