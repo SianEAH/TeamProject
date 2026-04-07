@@ -3,6 +3,10 @@
 let timeLeft = 10;
 let timer;
 
+//Video Transition Variables
+const overlay = document.getElementById("transitionOverlay");
+const video = document.getElementById("transitionVideo");
+
 //Starting my puzzle
 function startRapidFirePuzzle(){
     window.location.href = "CustomerService4.html";
@@ -222,8 +226,10 @@ try {
   console.error("Error changing the module completion status: " + err);
 }
 
-    //go to feedback modal
-    window.location.href = "../feedback.html";
+  //Play transition video
+  overlay.classList.remove("hidden");
+  video.currentTime = 0;
+  video.play();
 }
 
 //Start my timer for puzzle 
@@ -256,5 +262,15 @@ function noTimeLeft() {
     endQuiz(); //or end the quiz
   }
 }
+
+//When my transition video ends
+video.addEventListener("ended", () => {
+
+  overlay.classList.add("hidden");
+
+  //Go to the feedback page to end the module
+  window.location.href = "../feedback.html";
+
+});
 
 loadQuestion(); //call my function
