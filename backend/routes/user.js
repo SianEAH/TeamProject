@@ -21,10 +21,64 @@ router.get('/certificate/:moduleName', async (req, res) => {
             certificateId: `CERT-${user.referenceID}-${moduleName.toUpperCase().substring(0,3)}-2026`
         };
 
+        //Save certificate to user
+        //If there's no certificates, empty array
+        if (!user.certificates) {
+        user.certificates = [];
+        }
+
+        //Checking for duplicates
+        const exists = user.certificates.find(
+        c => c.moduleName === moduleName
+        );
+
+        if (!exists) {
+        user.certificates.push({
+            moduleName,
+            score: 100, //or pass real score later
+            date: new Date().toLocaleDateString(),
+            certificateId: certData.certificateId
+        });
+
+        user.markModified("certificates"); //tell mongodb there's an update
+        await user.save(); //save
+        }
+
         res.json(certData);
     } catch (err) {
         res.status(500).send('Server Error');
     }
+});
+
+//fetching all the certs for the Employer dashboard
+//Sian
+router.get("/all-certificates", async (req, res) => {
+  try {
+    const employees = await Employee.find();
+
+    const allCerts = []; //empty Array
+    //looping
+    employees.forEach(emp => {
+      if (emp.certificates && emp.certificates.length > 0) {
+        emp.certificates.forEach(cert => {
+          allCerts.push({
+            employeeName: emp.name,
+            referenceID: emp.referenceID,
+            moduleName: cert.moduleName,
+            score: cert.score,
+            date: cert.date,
+            certificateId: cert.certificateId
+          });
+        });
+      }
+    });
+
+    res.json(allCerts);
+
+  } catch (err) { //error handling
+    console.error(err);
+    res.status(500).send("Server error");
+  }
 });
 
 //update module status route dynamically (for logged in accounts)
