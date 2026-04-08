@@ -1,3 +1,4 @@
+//Sian
 //track the puzzles as they're added
 let puzzleCount = 1;
 
@@ -7,7 +8,7 @@ document.getElementById("addPuzzle").addEventListener("click", function () {
 
   const puzzleDiv = document.createElement("div");
   puzzleDiv.classList.add("puzzle");
-
+  //append to innerHTML
   puzzleDiv.innerHTML = `
     <h3>Puzzle ${puzzleCount}</h3>
 
@@ -17,11 +18,7 @@ document.getElementById("addPuzzle").addEventListener("click", function () {
     <label>Media Type</label>
     <select class="mediaType">
       <option value="">Select Media Type</option>
-      <option value="text">Text</option>
-      <option value="image">Image</option>
-      <option value="video">Video</option>
       <option value="file">File</option>
-      <option value="mixture">Mixture</option>
     </select>
 
     <div class="mediaInput"></div>
@@ -40,7 +37,7 @@ document.getElementById("addPuzzle").addEventListener("click", function () {
 });
 
 
-//function to handle media type changes
+//function to handle media type changes (Options were taken out to make it file only)
 function setupMediaSelector(select) {
 
   select.addEventListener("change", function () {
@@ -48,51 +45,10 @@ function setupMediaSelector(select) {
     const container = this.nextElementSibling;
     container.innerHTML = "";
 
-    if (this.value === "text") {
+    if (this.value === "file") {
 
       container.innerHTML = `
-        <label>Scenario Text</label>
-        <textarea name="mediaText[]"></textarea>
-      `;
-    }
-
-    else if (this.value === "image") {
-
-      container.innerHTML = `
-        <label>Upload Image</label>
-        <input type="file" name="mediaImage[]" accept="image/*">
-      `;
-    }
-
-    else if (this.value === "video") {
-
-      container.innerHTML = `
-        <label>Upload Video</label>
-        <input type="file" name="mediaVideo[]" accept="video/*">
-      `;
-    }
-
-    else if (this.value === "file") {
-
-      container.innerHTML = `
-        <label>Upload Document</label>
-        <input type="file" name="mediaFile[]" accept=".pdf,.doc,.docx">
-      `;
-    }
-
-    else if (this.value === "mixture") {
-
-      container.innerHTML = `
-        <label>Scenario Text</label>
-        <textarea name="mediaText[]"></textarea>
-
-        <label>Upload Image</label>
-        <input type="file" name="mediaImage[]" accept="image/*">
-
-        <label>Upload Video</label>
-        <input type="file" name="mediaVideo[]" accept="video/*">
-
-        <label>Upload Document</label>
+        <label>Upload File</label>
         <input type="file" name="mediaFile[]" accept=".pdf,.doc,.docx">
       `;
     }
@@ -100,6 +56,11 @@ function setupMediaSelector(select) {
   });
 
 }
+
+//When the add module button is clicked an alert is shown
+document.getElementById("createModule").addEventListener("click", function () {
+  alert("Module created!");
+});
 
 
 //attach media selector to the first puzzle on page load
