@@ -1,0 +1,41 @@
+<!DOCTYPE html> <!--Original code by Sian, modified by Roberto for Fire Safety module-->
+
+<html lang="en">
+    <!--Link to CSS Stylesheet-->
+    <link rel="stylesheet" href="../../css/CustomerService/CustomerService.css">
+
+    <!--Link to JS Script-->
+    <script src="../../js/FireSafety/FireSafety.js" defer></script>
+
+    <!--Responsiveness-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <head> <title>General Safety</title></head>
+
+    <body> 
+        <div class="quizContainer">
+
+            <h1>Puzzle 1: Pick the Correct RESPONSE</h1>
+
+            <div id="questionBox">
+            <button id="hintBTN" class="hintBTN">Hint</button>
+            <p id="hintText"></p>
+            <h3 id="questionText"></h3>
+
+            <div class="answers">
+
+            <button class="answerBTN" onclick="checkAnswer(0)"></button>
+            <button class="answerBTN" onclick="checkAnswer(1)"></button>
+            <button class="answerBTN" onclick="checkAnswer(2)"></button>
+            <button class="answerBTN" onclick="checkAnswer(3)"></button>
+
+            </div>
+
+            <button id="nextBTN" onclick="nextQuestion()">Next</button>
+
+            </div>
+
+        </div>
+    </body>
+</html>

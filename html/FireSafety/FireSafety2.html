@@ -1,0 +1,83 @@
+<!DOCTYPE html> <!--Original code by Sian, modified by Roberto for Fire Safety module-->
+    <html lang="en">
+
+    <head>
+
+        <!--Link to CSS-->
+        <link rel="stylesheet" href="../../css/CustomerService/CustomerService2.css">
+
+        <!--Link to JS-->
+        <script src="../../js/FireSafety/FireSafety2.js" defer></script>
+
+        <!--Responsiveness-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Fire Extinguishers</title>
+
+    </head>
+
+    <body>
+
+        <h1>Drag the Complaint to the Best Response</h1>
+        <button id="hintBTN" class="submitBTN">Hint</button>
+        <p id="hintText"></p>
+        <div class="puzzleContainer">
+        
+        <div class="complaints">
+
+        <div draggable="true" class="complaint" id="c1"> <!--https://www.w3schools.com/tags/att_draggable.asp-->
+        Water-Based Extinguisher
+        </div>
+
+        <div draggable="true" class="complaint" id="c2">
+        Foam-Based Extinguisher
+        </div>
+
+        <div draggable="true" class="complaint" id="c3">
+        Powder-Based Extinguisher
+        </div>
+
+        <div draggable="true" class="complaint" id="c4">
+        CO2-Based Extinguisher
+        </div>
+
+        <div draggable="true" class="complaint" id="c5">
+        Wet-Chemical Extinguisher
+        </div>
+
+        </div>
+
+
+        <div class="responses">
+
+        <div class="dropzone" data-answer="c1"> <!--https://www.w3schools.com/tags/att_dropzone.asp-->
+        A paper recycling bin has caught fire.
+        </div>
+
+        <div class="dropzone" data-answer="c2">
+        A lit cigarette bud has caused a pool of petrol on the ground to ignite.
+        </div>
+
+        <div class="dropzone" data-answer="c3">
+        A gas leak from a nearby propane tank has ignited.
+        </div>
+
+        <div class="dropzone" data-answer="c4">
+        An electrical fire has started inside the circuit-breaker panel.
+        </div>
+
+        <div class="dropzone" data-answer="c5">
+        A deep fat frier has overheated and the cooking oil has ignited.
+        </div>
+
+        </div>
+
+        </div>
+
+        <button onclick="submitPuzzle()" class="submitBTN">
+        Submit
+        </button>
+
+    </body>
+</html>
