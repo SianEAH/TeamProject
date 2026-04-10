@@ -15,11 +15,12 @@ router.post("/", async (req, res) => {
         //See if that company/employer already has an account
         let existing = await Employer.findOne({ companyID });
 
+        //if they do
         if (existing) {
             return res.status(400).json({ message: "Company already exists" });
         }
 
-        //If they don't exist, create a new employer
+        //If they don't exist, create a new employer entry
         const newEmployer = new Employer({
             companyName,
             companyID,
@@ -27,8 +28,9 @@ router.post("/", async (req, res) => {
             password
         });
 
-        await newEmployer.save();
+        await newEmployer.save(); //save it
 
+        //send a message back
         res.status(201).json({ message: "Employer registered successfully" });
 
     } catch (err) { //error catching

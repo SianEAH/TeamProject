@@ -1,3 +1,5 @@
+<!--Sian-->
+
 <!DOCTYPE html>
 <html lang="en">
     
@@ -89,7 +91,7 @@
         <label>Puzzle Format:</label>
             <select name="puzzleType">
 
-                <option value="">Select a format</option> <!--Don't force them to choose-->
+                <option value="">Select a format (Optional)</option> <!--Don't force them to choose-->
 
                 <option value="multipleChoice">
                 Multiple Choice – user selects the correct answer
@@ -122,18 +124,14 @@
         <select class="mediaType">
 
         <option value="">Select Media Type</option>
-        <option value="text">Text</option>
-        <option value="image">Image</option>
-        <option value="video">Video</option>
         <option value="file">File</option>
-        <option value="mixture">Mixture</option>
         </select>
 
         <div class="mediaInput"></div>
         <br><br>
         <button type="button" id="addPuzzle">Add Another Puzzle</button>
 
-        <button type="submit">Create Module</button>
+        <button type="submit" id="createModule">Create Module</button>
     </div>
         </form>
         <br><br>

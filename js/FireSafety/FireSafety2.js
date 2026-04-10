@@ -1,17 +1,13 @@
-//Sian
+//Original code by Sian, modified by Roberto for Fire Safety module
 //variables (similar to last puzzle)
 const hintBTN = document.getElementById("hintBTN");
 const hintText = document.getElementById("hintText");
 let score = 0; 
 let hintUsed = false;
 
-//transiition video variables
-const overlay = document.getElementById("transitionOverlay");
-const video = document.getElementById("transitionVideo");
-
 //Starting this puzzle
-function startComplaintPuzzle(){
-    window.location.href = "CustomerService2.html";
+function startExtinguisherPuzzle(){
+    window.location.href = "FireSafety2.html";
 }
 
 //more variables
@@ -69,28 +65,34 @@ items.forEach(item => container.appendChild(item));
 //Move to the next puzzle function
 function submitPuzzle() {
     const zones = document.querySelectorAll(".dropzone");
-    score = 0; //reset the score to 0
-
-    //loop through the zones
+    score = 0; //reset the score
+    //looping
     zones.forEach(zone => {
         const complaint = zone.querySelector(".complaint");
-        //if the complaint and the answer match, increase score counter
+        //Check if there is something in the zone & if it matches the correct answer
         if (complaint && complaint.id === zone.dataset.answer) {
-            score++;
+            score++; //increase the score counter
         }
     });
 
-    //Save score to local storage
-    localStorage.setItem("p2Score", score);
-    localStorage.setItem("p2Total", zones.length);
+        //storing the score locally as fail-safe
+        localStorage.setItem("p2Score", score);
+        localStorage.setItem("p2Total", zones.length);
+    
+        //go to the next puzzle
+        window.location.href = "FireSafety3Instructions.html";
 
-    //Play transition video
-    overlay.classList.remove("hidden");
-    video.currentTime = 0; //start at the beginning
-    video.play();
+    //Checking the final score after the loop finishes
+    /*if (score === 8) {
+        alert("Well done! You have completed the Customer Service module.");
+        //connecting to feedback page 
+        window.location.href = "../feedbackPage.html";
+    } else {
+        alert("You got " + score + " out of 8 correct. Keep trying to match all complaints!");
+    }*/
 }
 
-//Handling hints
+//handling hints
 hintBTN.addEventListener("click", showHint);
 
 function showHint() {
@@ -103,7 +105,7 @@ function showHint() {
 
         if (complaint && complaint.id !== zone.dataset.answer && !incorrectFound) {
 
-            hintText.textContent = "One of your matches is incorrect. Think about how to respond professionally to: " + complaint.textContent;
+            hintText.textContent = "One of your matches is incorrect. Think about how to respond appropriately to: " + complaint.textContent;
 
             incorrectFound = true;
 
@@ -119,16 +121,6 @@ function showHint() {
     }
 
 }
-
-//When the transition video ends
-video.addEventListener("ended", () => {
-
-    overlay.classList.add("hidden");
-
-    //Go to next puzzle
-    window.location.href = "CustomerService3Instructions.html";
-
-});
 
 shuffleComplaints();
 

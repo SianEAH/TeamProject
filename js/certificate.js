@@ -1,6 +1,5 @@
-
-
 //function to get data from Backend
+//Hamza
 async function getRealCertData() {
     //getting the module name from the URL (e.g., certificate.html?module=FireSafety)
     const urlParams = new URLSearchParams(window.location.search);
@@ -10,11 +9,27 @@ async function getRealCertData() {
     //getting the User ID we saved during login
     const refID = localStorage.getItem('referenceID');
 
+    //use a local cert if not logged in
     if (!refID) {
-        alert("Please log in first!");
-        window.location.href = "login.html";
-        return;
-    }
+
+      const certs = JSON.parse(localStorage.getItem("certificates")) || [];
+
+      if (certs.length === 0) {
+          alert("No certificate found!");
+          return;
+      }
+
+      const latest = certs[certs.length - 1];
+
+      showCertificate({
+          employeeName: localStorage.getItem("employeeName") || "Guest",
+          moduleName: latest.module,
+          issueDate: latest.date,
+          certificateId: latest.id
+      });
+
+      return;
+  }
 
     try {
         //caling the BE get route 
@@ -53,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => { //wait until the DOM has l
   document
     .getElementById("closeCertificateBTN")
     .addEventListener("click", () => {
-      document.getElementById("certificate").classList.add("hidden");
+      window.location.href = "EmployeeDashboard.html";
   });
 
   document
@@ -63,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => { //wait until the DOM has l
 });
 
 //https://www.npmjs.com/package/qrcode
+//Sian
 function generateQRCode(certificateID) {
   const qrContainer = document.getElementById("qrCode");
   qrContainer.innerHTML = ""; /*make sure it's empty*/
@@ -78,6 +94,7 @@ function generateQRCode(certificateID) {
 }
 
 //Download button
+//Sian
 document
   .getElementById("downloadCertificateBTN")
   .addEventListener("click", downloadCertificate);

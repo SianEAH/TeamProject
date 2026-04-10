@@ -24,6 +24,7 @@
 
             <img src="../images/logo.png" alt="Logo of a key, with a door underlay and the words BreakRoom written above" class="logo">
             
+            <!--Buttons-->
             <div id="buttonsDiv">
                 <button type="button" class="button" id="employerBTN" onclick="showEmployer()">Employer</button>
                 <br><br>
@@ -32,6 +33,7 @@
             </div>
 
             <form>
+                <!--Employer-->
                 <div id="employerFields" class="formSection">
                 <label>Company ID: </label>
                 <input type="text" id="companyID">
@@ -47,10 +49,10 @@
                 </p>
 
                 </div>
-                <!--Registration Fields-->
+                <!--Registration Fields (Employer)-->
                 <div id="registerFields" class="formSection">
                     <label>Company Name: </label>
-                    <input type="text" id="regCompanyName">
+                    <input type="text" id="regCompanyName"> <!--Added reg for clarity, prevent clashes-->
 
                     <label>Company ID: </label>
                     <input type="text" id="regCompanyId">
@@ -68,6 +70,7 @@
                     <button type="button" class="backBTN" onclick="resetForm()">Back</button>
                 </div>
 
+                <!--Employee-->
                 <div id="employeeFields" class="formSection">
                 <label>Reference ID: </label>
                 <input type="text" id="referenceID">

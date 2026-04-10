@@ -1,7 +1,7 @@
 //Get the info from the fields
 //Sian
 let employerFields, employeeFields, registerFields;
-let currentRoll = null; //to make sure the role is the right one
+let currentRole = null; //to make sure the role is the right one
 //Wait for the DOM to load 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+//show Employer
 function showEmployer() {
     currentRole = "employer"; //to make sure it's employer
     employerFields.style.display = "block";
@@ -20,6 +21,7 @@ function showEmployer() {
     document.getElementById("employeeBTN").style.display = "none";
 }
 
+//Show Employee
 function showEmployee() {
     currentRole = "employee"; //to make sure it's employee
     employeeFields.style.display = "block";
@@ -29,6 +31,7 @@ function showEmployee() {
     document.getElementById("employerBTN").style.display = "none";
 }
 
+//Reset the form
 function resetForm() {
     employerFields.style.display = "none";
     employeeFields.style.display = "none";
@@ -84,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Form error - input issues");
             return; //come out of loop, to prevent crashing issue
         }
-
+        //variables
         const referenceID = referenceInput.value.trim();
         const password = passwordInput.value.trim();
 
