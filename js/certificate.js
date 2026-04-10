@@ -12,13 +12,13 @@ async function getRealCertData() {
 
     if (!refID) {
         alert("Please log in first!");
-        window.location.href = "login.html";
+        window.location.href = "/html/login.html";
         return;
     }
 
     try {
-        //caling the BE get route 
-        const response = await fetch(`http://localhost:4000/api/user/certificate/${moduleName}?referenceID=${refID}`);
+        // fetch certificate data using the relative Vercel /api route
+        const response = await fetch(`/api/user/certificate/${moduleName}?referenceID=${refID}`);
         
         if (!response.ok) throw new Error("Failed to fetch certificate");
 
@@ -29,7 +29,7 @@ async function getRealCertData() {
 
     } catch (err) {
         console.error("Error loading certificate:", err);
-        alert("Could not load certificate. Make sure the backend is running!");
+        alert("Could not load certificate. Please try again later.");
     }
 }
 

@@ -1,6 +1,6 @@
 function startPuzzle(){
 
-window.location.href = "CustomerService.html"; //https://www.w3schools.com/js/js_window_location.asp
+window.location.href = "/html/CustomerService/CustomerService.html"; //https://www.w3schools.com/js/js_window_location.asp
 
 }
 
@@ -117,7 +117,7 @@ loadQuestion();
 
 } else {
 
-window.location.href = "CustomerService2Instructions.html"; //go to the next puzzle
+window.location.href = "/html/CustomerService/CustomerService2Instructions.html"; //go to the next puzzle
 
 }
 

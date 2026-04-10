@@ -1,5 +1,5 @@
 function startComplaintPuzzle(){
-window.location.href = "CustomerService2.html";
+window.location.href = "/html/CustomerService/CustomerService2.html";
 }
 
 const complaints = document.querySelectorAll(".complaint");
@@ -69,7 +69,7 @@ function submitPuzzle() {
     if (score === 8) {
         alert("Well done! You have completed the Customer Service module.");
         //connecting to feedback page 
-        window.location.href = "../feedbackPage.html";
+        window.location.href = "/html/feedbackPage.html";
     } else {
         alert("You got " + score + " out of 8 correct. Keep trying to match all complaints!");
     }

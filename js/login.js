@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // communicating with the backend
         try {
-            const response = await fetch('http://localhost:4000/api/login', {
+            const response = await fetch('/api/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ referenceID, password })
@@ -55,9 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 localStorage.setItem('referenceID', referenceID);
                 // routing the user to the dashboard
                 if (isEmployee) {
-                    window.location.href = "EmployeeDashboard.html";
+                    window.location.href = "/html/EmployeeDashboard.html";
                 } else {
-                    window.location.href = "EmployerDashboard.html";
+                    window.location.href = "/html/EmployerDashboard.html";
                 }
             } else {
                 // in case of wrong credentials show error to user
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         } catch (err) {
             console.error("Fetch error:", err);
-            alert("The server isn't responding. Is the backend running on port 4000?");
+            alert("The server isn't responding. Please try again later.");
         }
     });
 });
