@@ -6,4 +6,9 @@ router.get('/test', (req, res) => {
     res.send('Route is working');
 });
 
+//Hamza
+//Station 404 Breach - final code verification
+const { verifyFinalCode } = require('../controllers/networkBreach');
+router.post('/networkBreach/verify', verifyFinalCode);
+
 module.exports = router;
