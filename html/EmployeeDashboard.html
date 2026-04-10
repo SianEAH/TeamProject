@@ -48,7 +48,7 @@
                     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                     ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
                     voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                <a href="FirstAidInstructions.html?module=FirstAid" class="btn btn-primary">Enter</a>
+                <a href="../html/FirstAid/index.html" class="btn btn-primary">Enter</a>
             </div>
         </div>
         <div class="card">
@@ -59,7 +59,9 @@
                     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                     ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
                     voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                <a href="../html/CustomerService/CustomerServiceInstructions.html?module=FireSafety" class="btn btn-primary">Enter</a>            </div>
+                <a href="../html/CustomerService/CustomerServiceInstructions.html?module=FireSafety"
+                    class="btn btn-primary">Enter</a>
+            </div>
         </div>
         <div class="card">
             <img src="../images/fireSafety.jpg" class="card-img-top" alt="...">
@@ -69,7 +71,7 @@
                     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                     ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
                     voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-               <a href="FireSafetyInstructions.html?module=FireSafety" class="btn btn-primary">Enter</a>
+                <a href="FireSafetyInstructions.html?module=FireSafety" class="btn btn-primary">Enter</a>
             </div>
         </div>
     </div>
@@ -77,18 +79,18 @@
         <p>© 2026 BreakRoom Training Platform</p>
     </footer>
     <script>
-    // This function puts the "Module Name" into the browser's memory
-    function setModule(name) {
-        localStorage.setItem('currentModuleName', name);
-    }
+        // This function puts the "Module Name" into the browser's memory
+        function setModule(name) {
+            localStorage.setItem('currentModuleName', name);
+        }
 
-    // attaching the logic
-    document.querySelectorAll('.card-body a').forEach(link => {
-        link.addEventListener('click', function() {
-            const moduleTitle = this.parentElement.querySelector('.card-title').innerText;
-            setModule(moduleTitle);
+        // attaching the logic
+        document.querySelectorAll('.card-body a').forEach(link => {
+            link.addEventListener('click', function () {
+                const moduleTitle = this.parentElement.querySelector('.card-title').innerText;
+                setModule(moduleTitle);
+            });
         });
-    });
     </script>
 
 
