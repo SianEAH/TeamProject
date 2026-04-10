@@ -1,0 +1,179 @@
+<!--Hamza-->
+<!--Station 404 Breach: a 3-layer cyber safety escape puzzle-->
+<!--Single page with sections that toggle visibility, no router needed-->
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <!--Link to CSS Stylesheet-->
+        <link rel="stylesheet" href="../css/networkBreach.css">
+
+        <!--Link to JS Script-->
+        <script src="../js/networkBreach.js" defer></script>
+
+        <!--Responsiveness-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Station 404 Breach</title>
+    </head>
+
+    <body>
+
+        <div class="breachLayout">
+
+            <!--LEFT: clues sidebar (always visible, fills as you go)-->
+            <aside class="cluesSidebar">
+                <h3>Clues Collected</h3>
+                <p class="cluesHelp">Watch this list - you'll need every value at the end.</p>
+
+                <ul id="cluesList">
+                    <li id="clueStation"><span>Station number:</span> <b>?</b></li>
+                    <li id="clueEmails"><span>Email count:</span> <b>?</b></li>
+                    <li id="clueRoom"><span>Room number:</span> <b>?</b></li>
+                </ul>
+
+                <div class="formulaBox hidden" id="formulaBox">
+                    <p>Door code formula:</p>
+                    <p class="formulaLine"><span id="formulaText">? + ? + ? = ?</span></p>
+                </div>
+            </aside>
+
+            <!--RIGHT: the puzzle itself-->
+            <main class="breachContainer">
+
+                <h1>Station 404 Breach</h1>
+
+                <!--Story / onboarding panel-->
+                <div class="introPanel">
+                    <p><b>The brief:</b> An employee left their workstation unlocked
+                    and their inbox is full of suspicious emails. You're the security
+                    officer covering the breach. Walk through three layers - the desk,
+                    the inbox, and the door keypad - and lock the station back down.</p>
+                    <p><b>How it works:</b> Every layer gives you a number. Add all
+                    three numbers together at the end to crack the door code. Watch
+                    the <i>Clues Collected</i> panel on the left, it fills in as you go.</p>
+                </div>
+
+                <!--LAYER 1 - The Desk-->
+                <div id="layer1Desk">
+
+                    <h2>Layer 1 - The Desk</h2>
+                    <p>Click each item on the desk to inspect it. The Station ID is
+                    hidden across the phone and the calendar.</p>
+
+                    <div class="deskContainer">
+
+                        <div class="deskItem" onclick="showClue('phone')">
+                            <img src="../images/networkBreach/phone.jpg" alt="Desk phone">
+                            <p class="deskLabel">Phone</p>
+                        </div>
+
+                        <div class="deskItem" onclick="showClue('calendar')">
+                            <img src="../images/networkBreach/calendar.jpg" alt="Desk calendar">
+                            <p class="deskLabel">Calendar</p>
+                        </div>
+
+                        <div class="deskItem" onclick="showClue('laptop')">
+                            <img src="../images/networkBreach/laptop.jpg" alt="Office laptop">
+                            <p class="deskLabel">Laptop</p>
+                        </div>
+                    </div>
+
+                    <!--Each clue gets its own pinned card so they don't overwrite-->
+                    <div class="cluePinBoard">
+                        <div id="cluePhone" class="cluePin hidden">
+                            <h4>Phone sticker</h4>
+                            <p>A sticker on the back of the handset reads:<br>
+                            <b>Station: BRoom</b></p>
+                        </div>
+                        <div id="clueCalendar" class="cluePin hidden">
+                            <h4>Desk calendar</h4>
+                            <p>The page shows the highlighted maintenance day:<br>
+                            <b>The 27th</b></p>
+                        </div>
+                        <div id="clueLaptop" class="cluePin hidden">
+                            <h4>Laptop screen</h4>
+                            <p>Locked. Asking for a Station ID.<br>
+                            Type the station name and the date together with no space.</p>
+                        </div>
+                    </div>
+
+                    <div class="loginBox">
+                        <label for="layer1Input">Enter Station ID:</label>
+                        <input type="text" id="layer1Input" placeholder="e.g. BRoom27">
+                        <button class="unlockBTN" onclick="tryUnlock()">Unlock Laptop</button>
+                        <p id="layer1Result"></p>
+                    </div>
+                </div>
+
+                <!--LAYER 2 - The Inbox-->
+                <div id="layer2Inbox" class="hidden">
+
+                    <h2>Layer 2 - The Inbox</h2>
+                    <p>You're in. The inbox has 3 emails. Two are phishing scams,
+                    one is a legitimate memo. Read each one carefully, then hit
+                    <b>Report Phish</b> or <b>Mark Safe</b>. Wrong calls won't
+                    progress. The legit email also tells you what number to take
+                    forward to Layer 3 - read it twice.</p>
+
+                    <div class="inboxContainer">
+                        <ul id="emailList" class="emailList"></ul>
+
+                        <div class="emailBody">
+                            <h3 id="emailSubject">Select an email on the left</h3>
+                            <p id="emailFrom"></p>
+                            <p id="emailContent"></p>
+
+                            <div id="emailButtons" class="hidden">
+                                <button class="reportBTN" onclick="triageEmail(true)">Report Phish</button>
+                                <button class="safeBTN" onclick="triageEmail(false)">Mark Safe</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p id="layer2Status"></p>
+                </div>
+
+                <!--LAYER 3 - The Keypad-->
+                <div id="layer3Keypad" class="hidden">
+
+                    <h2>Layer 3 - Door Override</h2>
+                    <p>The room number is painted on the door panel below. Use the
+                    formula from the Clues Collected sidebar to work out the door
+                    code, then punch it in.</p>
+
+                    <div class="doorPanel">
+                        <p class="doorPaint">ROOM</p>
+                        <h3 class="doorRoomNumber">101</h3>
+                        <div id="codeDisplay"></div>
+                        <p id="hintStrip"></p>
+                    </div>
+
+                    <div class="keypad">
+                        <button class="keypadBTN" onclick="pressKey('1')">1</button>
+                        <button class="keypadBTN" onclick="pressKey('2')">2</button>
+                        <button class="keypadBTN" onclick="pressKey('3')">3</button>
+                        <button class="keypadBTN" onclick="pressKey('4')">4</button>
+                        <button class="keypadBTN" onclick="pressKey('5')">5</button>
+                        <button class="keypadBTN" onclick="pressKey('6')">6</button>
+                        <button class="keypadBTN" onclick="pressKey('7')">7</button>
+                        <button class="keypadBTN" onclick="pressKey('8')">8</button>
+                        <button class="keypadBTN" onclick="pressKey('9')">9</button>
+                    </div>
+
+                    <div class="keypadActions">
+                        <button class="keypadBTN" onclick="pressKey('0')">0</button>
+                        <button class="clearBTN" onclick="clearCode()">Clear</button>
+                        <button class="unlockBTN" onclick="verifyCode()">Enter</button>
+                    </div>
+
+                    <p id="layer3Result"></p>
+                </div>
+
+            </main>
+        </div>
+
+    </body>
+</html>

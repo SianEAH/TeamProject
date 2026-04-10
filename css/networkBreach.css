@@ -1,0 +1,397 @@
+/*Station 404 Breach - puzzle styling*/
+/*Hamza*/
+
+body{
+background:#1cabb0;
+font-family:Arial;
+margin:0;
+padding-bottom:40px;
+}
+
+/*Two-column layout: clues sidebar on the left, puzzle on the right*/
+.breachLayout{
+display:flex;
+gap:20px;
+max-width:1200px;
+margin:30px auto;
+padding:0 20px;
+align-items:flex-start;
+}
+
+/*Clues sidebar*/
+.cluesSidebar{
+flex:0 0 240px;
+background:#f4f7f0;
+border-radius:10px;
+padding:20px;
+position:sticky;
+top:30px;
+}
+
+.cluesSidebar h3{
+margin-top:0;
+color:#188a8e;
+}
+
+.cluesHelp{
+font-size:13px;
+color:#555;
+font-style:italic;
+}
+
+#cluesList{
+list-style:none;
+padding:0;
+margin:15px 0;
+}
+
+#cluesList li{
+padding:8px 10px;
+margin-bottom:6px;
+background:#fff;
+border-left:4px solid #ccc;
+border-radius:4px;
+font-size:14px;
+}
+
+#cluesList li.captured{
+border-left-color:#1cabb0;
+}
+
+#cluesList li b{
+float:right;
+color:#188a8e;
+font-size:16px;
+}
+
+.formulaBox{
+margin-top:15px;
+padding:10px;
+background:#1cabb0;
+color:white;
+border-radius:6px;
+text-align:center;
+}
+
+.formulaBox p{
+margin:4px 0;
+}
+
+.formulaLine{
+font-family:monospace;
+font-size:16px;
+font-weight:bold;
+}
+
+/*Main puzzle container*/
+.breachContainer{
+flex:1;
+background:#f4f7f0;
+padding:30px;
+border-radius:10px;
+}
+
+.breachContainer h1{
+margin-top:0;
+text-align:center;
+}
+
+.breachContainer h2{
+color:#188a8e;
+border-bottom:2px solid #1cabb0;
+padding-bottom:6px;
+margin-top:30px;
+}
+
+/*Intro / story panel at the very top*/
+.introPanel{
+background:#fff;
+border-left:5px solid #1cabb0;
+padding:15px 20px;
+margin-bottom:20px;
+border-radius:4px;
+}
+
+.introPanel p{
+margin:8px 0;
+line-height:1.5;
+}
+
+/*tiny helper so the JS can flip layers without inline styles*/
+.hidden{
+display:none;
+}
+
+/*Layer 1 - The Desk*/
+.deskContainer{
+display:flex;
+justify-content:space-around;
+align-items:flex-start;
+gap:15px;
+margin:20px 0;
+flex-wrap:wrap;
+}
+
+.deskItem{
+width:200px;
+background:#fff;
+border-radius:8px;
+padding:10px;
+cursor:pointer;
+transition:0.2s;
+text-align:center;
+border:3px solid transparent;
+}
+
+.deskItem:hover{
+border-color:#1cabb0;
+transform:translateY(-3px);
+}
+
+.deskItem img{
+width:100%;
+height:140px;
+object-fit:cover;
+border-radius:6px;
+display:block;
+}
+
+.deskLabel{
+margin:8px 0 0 0;
+font-weight:bold;
+color:#188a8e;
+}
+
+/*Pin board for the clue cards once they're revealed*/
+.cluePinBoard{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin:20px 0;
+justify-content:center;
+}
+
+.cluePin{
+flex:1 1 200px;
+max-width:260px;
+background:#fff;
+border:2px dashed #1cabb0;
+border-radius:6px;
+padding:12px;
+}
+
+.cluePin h4{
+margin:0 0 6px 0;
+color:#188a8e;
+}
+
+.cluePin p{
+margin:0;
+font-size:14px;
+}
+
+.cluePin b{
+font-size:18px;
+}
+
+/*Login form*/
+.loginBox{
+background:#fff;
+padding:15px;
+border-radius:6px;
+margin-top:15px;
+text-align:center;
+}
+
+.loginBox label{
+display:block;
+margin-bottom:8px;
+font-weight:bold;
+}
+
+#layer1Input{
+padding:10px;
+font-size:16px;
+width:60%;
+max-width:300px;
+border:1px solid #999;
+border-radius:4px;
+}
+
+.unlockBTN, .reportBTN, .safeBTN, .keypadBTN, .clearBTN{
+padding:10px 20px;
+font-size:16px;
+background:#1cabb0;
+color:white;
+border:none;
+cursor:pointer;
+border-radius:4px;
+margin:5px;
+}
+
+.unlockBTN:hover, .reportBTN:hover, .safeBTN:hover, .keypadBTN:hover, .clearBTN:hover{
+background:#188a8e;
+}
+
+.clearBTN{
+background:#a2abac;
+}
+
+#layer1Result{
+margin-top:10px;
+font-weight:bold;
+}
+
+/*Layer 2 - The Inbox*/
+.inboxContainer{
+display:flex;
+gap:15px;
+margin-top:20px;
+text-align:left;
+}
+
+.emailList{
+flex:1;
+background:#fff;
+border:1px solid #ccc;
+border-radius:6px;
+padding:10px;
+list-style:none;
+margin:0;
+min-height:340px;
+}
+
+.emailList li{
+padding:12px 10px;
+border-bottom:1px solid #eee;
+cursor:pointer;
+}
+
+.emailList li:hover{
+background:#d9ecec;
+}
+
+.emailList li.triaged{
+opacity:0.4;
+text-decoration:line-through;
+cursor:default;
+}
+
+.emailFromPreview{
+display:block;
+font-size:12px;
+color:#666;
+margin-top:2px;
+}
+
+.emailBody{
+flex:2;
+background:#fff;
+border:1px solid #ccc;
+border-radius:6px;
+padding:20px;
+min-height:340px;
+}
+
+.emailBody h3{
+margin-top:0;
+}
+
+#emailFrom{
+color:#666;
+font-size:13px;
+margin:0 0 12px 0;
+}
+
+#emailContent{
+white-space:pre-wrap;
+line-height:1.6;
+font-size:15px;
+}
+
+#layer2Status{
+margin-top:15px;
+font-weight:bold;
+text-align:center;
+}
+
+/*Layer 3 - The Keypad*/
+.doorPanel{
+margin:30px auto;
+padding:25px;
+background:#1cabb0;
+color:white;
+border-radius:8px;
+max-width:340px;
+text-align:center;
+}
+
+.doorPaint{
+margin:0;
+font-size:14px;
+letter-spacing:6px;
+opacity:0.8;
+}
+
+.doorRoomNumber{
+margin:0 0 15px 0;
+font-size:48px;
+font-family:monospace;
+letter-spacing:4px;
+}
+
+#codeDisplay{
+background:#000;
+color:#0f0;
+font-family:monospace;
+font-size:28px;
+padding:10px;
+border-radius:4px;
+min-height:36px;
+letter-spacing:4px;
+transition:background 0.4s;
+}
+
+/*flash classes for the win/lose animation*/
+#codeDisplay.flashGreen{
+background:#4CAF50;
+color:#000;
+}
+
+#codeDisplay.flashRed{
+background:#F44336;
+color:#000;
+}
+
+#hintStrip{
+margin:10px 0 0 0;
+font-size:13px;
+font-style:italic;
+opacity:0.9;
+}
+
+.keypad{
+display:grid;
+grid-template-columns:repeat(3, 1fr);
+gap:10px;
+max-width:300px;
+margin:20px auto;
+}
+
+.keypadBTN{
+padding:20px;
+font-size:20px;
+}
+
+.keypadActions{
+display:flex;
+justify-content:center;
+align-items:center;
+margin-top:10px;
+}
+
+#layer3Result{
+text-align:center;
+font-weight:bold;
+margin-top:10px;
+}
